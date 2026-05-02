@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tin Tức - INK Việt Nam</title>
     <link rel="stylesheet" href="tintuc.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <!-- Khong co CSS header tai trung nhieu bien mau-->
-    <link rel="stylesheet" href="../CSS_footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <!-- Không có CSS header và footer do trùng quá nhiều biến màu @@-->
   </head> 
   <body>
 <header>
@@ -122,10 +118,8 @@
           </div>
         </article>
       </div>
-
-
-
-      <main class="news-section container">
+      <br>
+      <br>
       <div class="news-grid">
         <article class="news-card">
           <div class="thumb">
@@ -159,7 +153,6 @@
             <a href="baiviet5.html" class="read-more">Read More »</a>
           </div>
         </article>
-
         <article class="news-card">
           <div class="thumb">
             <img src="https://i.ibb.co/c5Lz1xN/image4-22.png" alt="News" />
@@ -175,10 +168,8 @@
           </div>
         </article>
       </div>
-
-
-
-       <main class="news-section container">
+      <br>
+      <br>
       <div class="news-grid">
         <article class="news-card">
           <div class="thumb">
@@ -228,58 +219,7 @@
           </div>
         </article>
       </div>
-
 </main>
-     <style>
-    :root {
-        --ink-purple: #6a1b9a; /* Màu tím thương hiệu ink */
-        --ink-light: #f4f4f4;
-    }
-
-    .pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 30px;
-        font-family: Arial, sans-serif;
-    }
-
-    .page-node {
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #ddd;
-        border-radius: 50%;
-        cursor: pointer;
-        text-decoration: none;
-        color: #333;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    /* Trạng thái khi di chuột qua */
-    .page-node:hover {
-        border-color: var(--ink-purple);
-        color: var(--ink-purple);
-    }
-
-    /* Trạng thái trang đang được chọn (Active) */
-    .page-node.active {
-        background-color: var(--ink-purple);
-        color: white;
-        border-color: var(--ink-purple);
-    }
-
-    /* Nút mũi tên */
-    .arrow {
-        font-size: 18px;
-    }
-</style>
-
  <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -314,7 +254,7 @@
   </footer>
   
 
-    <script>
+  <script>
     function changePage(pageNumber, element) {
         // 1. Xóa trạng thái 'active' (màu tím) của tất cả các nút hiện tại
         const allPages = document.querySelectorAll('.page-node');
@@ -333,10 +273,5 @@
         */
     }
 </script>
-
-
-
-
-
-  </body>
+</body>
 </html>
