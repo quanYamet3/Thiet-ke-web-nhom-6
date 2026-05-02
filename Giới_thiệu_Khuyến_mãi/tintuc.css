@@ -139,30 +139,6 @@ body {
   color: var(--ink-orange);
 }
 
-/* 7. PHÂN TRANG (PAGINATION) */
-.pagination {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.pagination button {
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--border-color);
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.pagination button.active {
-  background: var(--ink-purple);
-  color: #fff;
-  border-color: var(--ink-purple);
-}
-
 /* 8. RESPONSIVE (CHO ĐIỆN THOẠI) */
 @media (max-width: 992px) {
   .news-grid {
