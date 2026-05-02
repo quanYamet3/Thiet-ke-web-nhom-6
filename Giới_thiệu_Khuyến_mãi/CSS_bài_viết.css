@@ -1,0 +1,127 @@
+:root {
+        --primary-purple: #6a1b9a; /* Màu tím thương hiệu */
+        --accent-orange: #ff6d00; /* Màu cam từ logo */
+        --text-gray: #333;
+        --light-gray: #777;
+        --bg-color: #f9f9f9;
+        /* Màu của bên trang chủ */
+        --ink-purple: #5c3290;   
+        --ink-orange: #d8511c;   
+        --ink-light: #FAF5FF;
+        --ink-dark: #1E0A2E;
+        --ink-gray: #64748B;
+        --ink-border: #E9D5FF;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-gray);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        background: #fff;
+        margin: 0 auto;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        border-left: 1px solid #eee;
+      }
+
+      /* Phần Category/Breadcrumb */
+      .category {
+        color: var(--primary-purple);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      /* Tiêu đề chính */
+      h1 {
+        color: var(--primary-purple);
+        font-size: 2.2rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      /* Đường gạch ngang nhỏ dưới tiêu đề */
+      .divider {
+        width: 40px;
+        height: 3px;
+        background-color: #ddd;
+        margin-bottom: 20px;
+      }
+
+      /* Ngày đăng và Tác giả */
+      .meta {
+        font-size: 0.8rem;
+        color: var(--light-gray);
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .meta span {
+        color: var(--primary-purple);
+      }
+
+      /* Tiêu đề phụ trong bài viết */
+      h2 {
+        color: var(--primary-purple);
+        font-size: 1.8rem;
+        margin-top: 30px;
+      }
+
+      h3 {
+        color: var(--primary-purple);
+        font-size: 1.4rem;
+        margin-top: 25px;
+      }
+
+      /* Nội dung văn bản */
+      p {
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+
+      /* Điểm nhấn số thứ tự (như ảnh 2) */
+      .section-title {
+        color: var(--primary-purple);
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-top: 35px;
+        margin-bottom: 15px;
+      }
+
+      /* Nút hotline nổi (Floating button) */
+      .hotline-btn {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background-color: var(--primary-purple);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(106, 27, 154, 0.3);
+      }
+
+      .hotline-btn::before {
+        content: "📞";
+        margin-right: 10px;
+      }
+
+      /* Hình ảnh minh họa */
+      .featured-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin: 20px 0;
+      }

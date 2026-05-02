@@ -1,0 +1,45 @@
+
+        .site-footer {
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 2px solid var(--primary-purple);
+            font-size: 14px;
+            background-color:white; 
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 35% 20% 20% 25%;
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-purple);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .company-info ul li { margin-bottom: 10px; list-style: disc; margin-left: 18px;}
+        .highlight-text { color: var(--primary-orange); font-weight: bold; }
+
+        .footer-links ul li { border-bottom: 1px solid var(--border-color); }
+        .footer-links ul li a {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .footer-links ul li a::before {
+            content: "\203A";
+            color: var(--primary-orange);
+            font-size: 20px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .container-footer{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 0px;
+            padding-right: 100px;
+        }

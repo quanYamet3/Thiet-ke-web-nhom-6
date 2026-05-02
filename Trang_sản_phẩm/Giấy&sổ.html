@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS_San_Pham.css">
+    <link rel="stylesheet" href="../CSS_header.css">
+    <link rel="stylesheet" href="../CSS_footer.css"> 
+</head>
+<body>
+
+    <header>
+        <nav>
+    <a href="#" class="nav-logo">
+    <img src="images/logo.jpg" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="../Trang_chủ.html">Trang Chủ</a>
+      <a href="Giấy&sổ.html" class="active">Sản Phẩm</a>
+      <a href="../Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
+      <a href="../Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
+      <a href="../Liên_hệ.html">Liên Hệ</a>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+      </div>
+      <button class="btn-account" onclick="openModal('loginModal')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tài khoản
+      </button>
+      <!-- Nút giỏ hàng - Small pill -->
+      <button class="btn-cart" onclick="toggleCart()">
+        CART
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART OVERLAY & DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Gio Hang</h3>
+      <button class="cart-close" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p style="font-weight:600;margin-bottom:6px;">Giỏ hàng của tôi</p>
+        <p style="font-size:13px;">Hãy thêm sản phẩm vào giỏ hàng</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Tổng cộng:</span><strong id="cartTotal">0d</strong></div>
+      <button class="btn-checkout">Thanh Toán Ngay</button>
+    </div>
+  </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <div class="container main-content">
+        
+        <aside class="sidebar">
+            <h3>DANH MỤC SẢN PHẨM</h3>
+            <ul class="category-list">
+                <li><a href="Giấy&sổ.html" class="active">Giấy & Sổ</a></li>
+                <li><a href="Bút_viết.html">Bút viết</a></li>
+                <li><a href="Kẹp&Ghim.html">Kẹp & Ghim</a></li>
+                <li><a href="Dụng_cụ.html">Dụng cụ</a></li>
+                <li><a href="Lưu_trữ.html">Lưu trữ</a></li>
+                <li><a href="Hộp_đựng.html">Hộp đựng</a></li>
+                <li><a href="Khác.html">Các phụ kiện khác</a></li>
+            </ul>
+        </aside>
+
+        <section class="product-area">
+            <div class="breadcrumb">
+                Trang chủ / Sản phẩm / <span>Giấy & Sổ</span>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="#" alt="Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001" class="product-img">
+                    <div class="product-title">Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001</div>
+                    <div class="product-price">60.000đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Sổ lò xo A4 - Campus - 80gsm - VP002" class="product-img">
+                    <div class="product-title">Sổ lò xo A4 - Campus - 80gsm - VP002</div>
+                    <div class="product-price">109.500đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Giấy in A4 - Double A - 70gsm - VP003" class="product-img">
+                    <div class="product-title">Giấy in A4 - Double A - 70gsm - VP003</div>
+                    <div class="product-price">86.000đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Giấy in A4 - Paper One - 80gsm - VP004" class="product-img">
+                    <div class="product-title">Giấy in A4 - Paper One - 80gsm - VP004</div>
+                    <div class="product-price">130.000đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Giấy note vàng - 3M Post-it - 75gsm - VP005" class="product-img">
+                    <div class="product-title">Giấy note vàng - 3M Post-it - 75gsm - VP005</div>
+                    <div class="product-price">18.000đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Giấy note 5 màu - Pronoti - 75gsm - VP006" class="product-img">
+                    <div class="product-title">Giấy note 5 màu - Pronoti - 75gsm - VP006</div>
+                    <div class="product-price">14.500đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Giấy in ảnh - Kodak - 180gsm - VP007" class="product-img">
+                    <div class="product-title">Giấy in ảnh - Kodak - 180gsm - VP007</div>
+                    <div class="product-price">155.000đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+                <div class="product-card">
+                    <img src="#" alt="Sổ kế toán - Hải Tiến - 70gsm - VP008" class="product-img">
+                    <div class="product-title">Sổ kế toán - Hải Tiến - 70gsm - VP008</div>
+                    <div class="product-price">37.500đ</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="container-footer footer-grid">
+            <div class="footer-col company-info">
+                <h4 style="color:#FAF5FF">iNK Corner</h4>
+                <ul>
+                    <p>Nếu bạn có bất kỳ câu hỏi nào về sản phẩm, đơn hàng hoặc cần hỗ trợ trong quá trình mua sắm, đừng ngần ngại liên hệ với InkCorner. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn một cách nhanh chóng và rõ ràng nhất.Dù bạn đang cần tư vấn chọn sản phẩm, kiểm tra tình trạng đơn hàng hay đơn giản là muốn hỏi thêm thông tin, đội ngũ của InkCorner luôn cố gắng phản hồi trong thời gian sớm nhất để đảm bảo bạn có trải nghiệm mua sắm thuận tiện và dễ dàng.
+                    </p><br>
+                    <li><strong>Điện thoại:</strong> <span class="highlight-text">0913200206</span></li>
+                    <li><strong>Email:</strong> inkcorner.contact@gmail.com</li>
+                    <li><strong>Facebook: </strong> InkCorner Official</li>
+                    <li><strong>TikTok: </strong>  inkconer.official</li>
+                    <li><strong>Instagram: </strong> inkconer.official</li>
+                    <p2><strong>Thời gian phản hồi:</strong> 9:00 - 18:00 (Thứ 2 - Thứ 7)</p2>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-links">
+                <h4 style="color:#FAF5FF">Danh mục sản phẩm</h4>
+                <ul>
+                    <!-- Thêm nguồn dẫn tới các trang sản phẩm ở đây nhé-->
+                    <li><a href="#">Giấy & Sổ</a></li>
+                    <li><a href="#">Bút viết</a></li>
+                    <li><a href="#">Kẹp & ghim</a></li>
+                    <li><a href="#">Dụng cụ</a></li>
+                    <li><a href="#">Lưu trữ</a></li>
+                    <li><a href="#">Hộp đựng</a></li>
+                    <li><a href="#">Các phụ kiện khác</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-links">
+                <h4 style="color:#FAF5FF">Chính Sách</h4>
+                <ul>
+                    <!-- Thêm nguồn dẫn tới các trang chính sách và điều khoản ở đây nhé-->
+                    <li><a href="#">Chính sách bảo mật</a></li> 
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Hỗ trợ đơn hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 style="color:#FAF5FF">Lời nhắn từ InkCorner</h4>
+                <p>InkCorner luôn mong muốn mang đến trải nghiệm mua sắm đơn giản, rõ ràng và đáng tin cậy. Mọi ý kiến đóng góp của bạn đều rất quan trọng để chúng tôi có thể cải thiện và phục vụ tốt hơn mỗi ngày.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

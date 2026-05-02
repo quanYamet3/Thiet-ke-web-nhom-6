@@ -1,0 +1,196 @@
+/* === BIẾN MÀU SẮC CHỦ ĐẠO === */
+        :root {
+            --primary-purple: #5c3290;
+            --primary-orange: #d8511c;
+            --bg-color: #f5f5f5;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --font-main: 'Favicon', Arial, Helvetica, sans-serif; 
+            --ink-light: #FAF5FF;
+            --ink-purple: #5c3290;   
+            --ink-orange: #d8511c;   
+            --ink-light: #FAF5FF;
+            --ink-dark: #1E0A2E;
+            --ink-gray: #64748B;
+            --ink-border: #E9D5FF;
+        }
+
+        /* === RESET CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 0px;
+            padding-right: 50px;
+        }
+        /* === TRANG LIÊN HỆ === */
+        .breadcrumb {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb span {
+            color: var(--primary-purple);
+            font-weight: bold;
+        }
+
+        .contact-layout {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Cột thông tin liên hệ */
+        .contact-info-col {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-purple);
+        }
+
+        .contact-info-col h1 {
+            color: var(--primary-purple);
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-intro {
+            margin-bottom: 25px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .contact-section {
+            margin-bottom: 25px;
+        }
+
+        .contact-section h3 {
+            color: var(--primary-orange);
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .contact-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .contact-list li::before {
+            content: "•";
+            color: var(--primary-purple);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-list strong {
+            color: var(--text-color);
+        }
+
+        .highlight {
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        .message-box {
+            background-color: #f9f5ff;
+            padding: 15px;
+            border-left: 4px solid var(--primary-purple);
+            border-radius: 4px;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* Cột Form liên hệ */
+        .contact-form-col {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-orange);
+        }
+
+        .contact-form-col h3 {
+            color: var(--primary-purple);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-purple);
+        }
+
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            background-color: #b94215;
+        }
+
+    

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu - INK Việt Nam</title>
+    <link rel="stylesheet" href="gioithieu.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS_header.css">
+    <link rel="stylesheet" href="../CSS_footer.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+    <a href="#" class="nav-logo">
+    <img src="images/logo.jpg" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="../Trang_chủ.html">Trang Chủ</a>
+      <a href="../Trang_sản_phẩm/Giấy&sổ.html">Sản Phẩm</a>
+      <a href="gioithieu.html" class="active">Giới Thiệu</a>
+      <a href="tintuc.html">Blog</a>
+      <a href="../Liên_hệ.html">Liên Hệ</a>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+      </div>
+      <button class="btn-account" onclick="openModal('loginModal')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tài khoản
+      </button>
+      <!-- Nút giỏ hàng - Small pill -->
+      <button class="btn-cart" onclick="toggleCart()">
+        CART
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART OVERLAY & DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Gio Hang</h3>
+      <button class="cart-close" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p style="font-weight:600;margin-bottom:6px;">Giỏ hàng của tôi</p>
+        <p style="font-size:13px;">Hãy thêm sản phẩm vào giỏ hàng</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Tổng cộng:</span><strong id="cartTotal">0d</strong></div>
+      <button class="btn-checkout">Thanh Toán Ngay</button>
+    </div>
+  </div>
+    </header>
+<br>
+<br>
+<br>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>KÝ ỨC VIẾT<br />NÊN TƯƠNG LAI</h1>
+          <p>
+            Nơi khơi nguồn sáng tạo và kết nối vạn ý tưởng trên từng trang giấy.
+          </p>
+          <button class="btn-hero">KHÁM PHÁ BỘ SƯU TẬP</button>
+        </div>
+        <div class="hero-image">
+          <img src="images/hero-art.png" alt="Creative Art" />
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <main class="ink-container main-content-grid">
+        <section class="ink-intro-card shadow-sm">
+          <div class="intro-flex-wrapper">
+            <div class="intro-text-side">
+              <span class="badge">VỀ CHÚNG TÔI</span>
+              <h2 class="intro-title">INKcorner</h2>
+              <p>
+                InkCorner là cửa hàng văn phòng phẩm được tạo ra với mong muốn
+                trở thành một “góc nhỏ” quen thuộc cho những ai tìm kiếm sự rõ
+                ràng và hiệu quả trong học tập cũng như công việc. Chúng tôi tin
+                rằng việc ghi chép không chỉ đơn thuần là lưu lại thông tin, mà
+                còn là cách giúp bạn sắp xếp suy nghĩ, quản lý thời gian và duy
+                trì sự tập trung trong cuộc sống hằng ngày. Chúng tôi không theo đuổi sự cầu kỳ hay phức tạp, mà tập trung mang đến trải nghiệm mua sắm dễ dàng, nhanh chóng và đáng tin cậy.
+              </p>
+              <p>
+                Chúng tôi không theo đuổi sự cầu kỳ hay phức tạp, mà tập trung mang đến trải nghiệm mua sắm dễ dàng, nhanh chóng và đáng tin cậy. InkCorner mong muốn trở thành nơi bạn có thể quay lại bất cứ khi nào cần chuẩn bị cho một ngày học tập hoặc làm việc hiệu quả hơn.
+
+              </p>
+              </p>
+            </div>
+
+            <div class="intro-image-side">
+              <div class="image-stack-container">
+                <img
+                  src="https://i.ibb.co/1tJyBwFR/van-phong-pham-1-1f295311-3002-4e9f-a6fb-d401b5287b9d.webp"
+                  alt="Stationery 1"
+                  class="stack-img img-top"
+                />
+                <img
+                  src="https://i.ibb.co/FLtKQDbF/50-van-phong-pham-la-gi.jpg"
+                  class="stack-img img-bottom"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="ink-vision-mission-section">
+        <div class="ink-container">
+          <h2 class="section-main-heading">TẦM NHÌN & SỨ MỆNH</h2>
+
+          <div class="vision-mission-flex">
+            <div class="vision-card">
+              <div class="card-icon">
+                <img src="https://i.ibb.co/qL4pdzts/opportunity.pngg" alt="Vision Icon" />
+              </div>
+              <h3 class="card-title">TẦM NHÌN:</h3>
+              <p class="card-text">
+                Trở thành người định hình phong cách làm việc hiện đại, chuyên
+                nghiệp qua từng công cụ viết tinh tế.
+              </p>
+            </div>
+
+            <div class="vision-card">
+              <div class="card-icon">
+                <img src="https://i.ibb.co/zHJp85fh/mission.png" alt="Mission Icon" />
+              </div>
+              <h3 class="card-title">SỨ MỆNH:</h3>
+              <p class="card-text">
+                Cung cấp những sản phẩm văn phòng
+          phẩm chất lượng cao, khơi nguồn cảm hứng sáng tạo và thúc đẩy hiệu
+          suất làm việc.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="core-values">
+          <strong>CORE VALUES:</strong> <i>"Khơi nguồn sáng tạo – Kết nối vạn ý tưởng."</i>
+        </div>
+      </section>
+
+
+
+
+<section class="stats">
+    <h2 class="section-title">THÀNH TÍCH & SỐ LIỆU THỐNG KÊ</h2>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="counter" data-target="20">0</span><span>+</span><br />NĂM KINH NGHIỆM 
+      </div>
+      <div class="stat-box">
+        <span class="counter" data-target="50">0</span><span>K+</span
+        ><br />KHÁCH HÀNG TIN DÙNG
+      </div>
+      <div class="stat-box">
+        <span class="counter" data-target="40">0</span><span>+</span><br />CỬA
+        HÀNG
+      </div>
+      <div class="stat-box">
+        <span class="counter" data-target="100">0</span><span>%</span><br />CAM
+        KẾT
+      </div>
+    </div>
+  </section>
+
+  
+  <script src="thanhtich.js"></script>
+  
+
+
+
+      <section class="achievement-section">
+    <div class="ink-container achievement-flex">
+        <div class="achievement-image">
+            <img src="https://i.ibb.co/KxkrjQgy/Kinh-Te-Viet-Nam-3.jpg" alt="Biểu đồ tăng trưởng">
+        </div>
+
+        <div class="achievement-content">
+            <ul class="achievement-list">
+                <li>Top 10 doanh nghiệp bán lẻ uy tín Việt Nam 2022</li>
+                <li>Danh hiệu hàng Việt Nam chất lượng cao do người tiêu dùng bình chọn.</li>
+                <li>Giải thưởng thiết kế xuất sắc</li>
+                <li>Thâm nhập thị trường quốc tế</li>
+                <li>Giải thưởng thiết kế văn phòng phẩm</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Container chung cho phần thành tựu */
+.achievement-section {
+    background-color: #f9f9f9; /* Nền trắng xám nhạt */
+    padding: 60px 0;
+}
+
+.achievement-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Định dạng hình ảnh bên trái */
+.achievement-image {
+    flex: 1;
+    text-align: center;
+}
+
+.achievement-image img {
+    max-width: 100%;
+    height: auto;
+    /* Hiệu ứng đổ bóng nhẹ cho ảnh nếu muốn */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+/* Định dạng danh sách bên phải */
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.achievement-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Tạo dấu chấm đen tròn trước mỗi dòng */
+.achievement-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .achievement-flex {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .achievement-list li {
+        font-size: 16px;
+    }
+}
+</style>
+
+
+<section class="team">
+    <h2 class="section-title">ĐỘI NGŨ NHIỆT HUYẾT</h2>
+    <div class="team-grid">
+        
+        <div class="member">
+            <img src="https://i.ibb.co/S7d6xSPh/Anh-profile-nam-12-min.jpg" alt="Ảnh Member 1" class="member-photo">
+            
+            <p><strong>Member Name</strong><br>Position</p>
+        </div>
+
+        <div class="member">
+            <img src="https://i.ibb.co/Gvk00brk/Foto-2-Ludwig-Graf.jpg" class="member-photo">
+            <p><strong>Member Name</strong></p>
+        </div>
+
+        <div class="member">
+            <img src="https://i.ibb.co/zv6ZRR8/bee7a489dec223e7709ea38e5549f595.jpg" alt="Ảnh Member 3" class="member-photo">
+            <p><strong>Member Name</strong></p>
+        </div>
+
+        <div class="member">
+            <img src="https://i.ibb.co/gM7WBCtG/4287095574182024773857948602471828453181318n-1754957944131-17549579444161494684641.jpg" alt="Ảnh Member 4" class="member-photo">
+            <p><strong>Member Name</strong></p>
+        </div>
+
+        <div class="member">
+            <img src="https://i.ibb.co/xdbDg9g/503312473-1915763975826256-1015752087819705074-n.jpg" class="member-photo">
+            <p><strong>Member Name</strong></p>
+        </div>
+
+    </div>
+</section>
+
+
+      
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col company-info">
+                <h4>iNK Corner</h4>
+                <ul>
+                    <p>Nếu bạn có bất kỳ câu hỏi nào về sản phẩm, đơn hàng hoặc cần hỗ trợ trong quá trình mua sắm, đừng ngần ngại liên hệ với InkCorner. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn một cách nhanh chóng và rõ ràng nhất.Dù bạn đang cần tư vấn chọn sản phẩm, kiểm tra tình trạng đơn hàng hay đơn giản là muốn hỏi thêm thông tin, đội ngũ của InkCorner luôn cố gắng phản hồi trong thời gian sớm nhất để đảm bảo bạn có trải nghiệm mua sắm thuận tiện và dễ dàng.
+                    </p><br>
+                    <li><strong>Điện thoại:</strong> <span class="highlight-text">0913200206</span></li>
+                    <li><strong>Email:</strong> inkcorner.contact@gmail.com</li>
+                    <li><strong>Facebook: </strong> InkCorner Official</li>
+                    <li><strong>TikTok: </strong>  inkconer.official</li>
+                    <li><strong>Instagram: </strong> inkconer.official</li>
+                    <p2><strong>Thời gian phản hồi:</strong> 9:00 - 18:00 (Thứ 2 - Thứ 7)</p2>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-links">
+                <h4>Danh mục sản phẩm</h4>
+                <ul>
+                    <!-- Thêm nguồn dẫn tới các trang sản phẩm ở đây nhé-->
+                    <li><a href="#">Giấy & Sổ</a></li>
+                    <li><a href="#">Bút viết</a></li>
+                    <li><a href="#">Kẹp & ghim</a></li>
+                    <li><a href="#">Dụng cụ</a></li>
+                    <li><a href="#">Lưu trữ</a></li>
+                    <li><a href="#">Hộp đựng</a></li>
+                    <li><a href="#">Các phụ kiện khác</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-links">
+                <h4>Chính Sách</h4>
+                <ul>
+                    <!-- Thêm nguồn dẫn tới các trang chính sách và điều khoản ở đây nhé-->
+                    <li><a href="#">Chính sách bảo mật</a></li> 
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Hỗ trợ đơn hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Lời nhắn từ InkCorner</h4>
+                <p>InkCorner luôn mong muốn mang đến trải nghiệm mua sắm đơn giản, rõ ràng và đáng tin cậy. Mọi ý kiến đóng góp của bạn đều rất quan trọng để chúng tôi có thể cải thiện và phục vụ tốt hơn mỗi ngày.</p>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
