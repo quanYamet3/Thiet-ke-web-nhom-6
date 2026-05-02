@@ -6,12 +6,13 @@
   <title>INK - Van Phong Pham</title>
   <link rel="stylesheet" href="CSS_trang_chủ.css">
   <link rel="stylesheet" href="CSS_header.css">
+  <link rel="stylesheet" href="CSS_footer.css">
 </head>
 <header>
   <!-- Thanh điều hướng -->
   <nav>
     <a href="#" class="nav-logo">
-    <img src="images/logo.jpg" class="logo-img">
+    <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
       <a href="Trang_chủ.html" class="active">Trang Chủ</a>
@@ -212,258 +213,37 @@
     </section>
   </div>
 
-  <!-- ═══════════ PRODUCTS PAGE ═══════════ -->
-  <div id="products" class="page">
-    <section style="padding-top:100px">
-      <div class="section-label">Cua Hang</div>
-      <div class="section-title" style="margin-bottom:8px">Tat Ca San Pham</div>
-      <p class="section-sub">Chat luong dam bao, gia ca phai chang</p>
-      <div class="filter-tabs" style="margin-bottom:32px" id="filterTabs">
-        <button class="filter-tab active" onclick="filterByCategory('',this)">Tat Ca</button>
-        <button class="filter-tab" onclick="filterByCategory('But',this)">But Viet</button>
-        <button class="filter-tab" onclick="filterByCategory('So',this)">So Tay</button>
-        <button class="filter-tab" onclick="filterByCategory('Van phong',this)">Van Phong</button>
-        <button class="filter-tab" onclick="filterByCategory('Giay',this)">Giay In</button>
-        <button class="filter-tab" onclick="filterByCategory('Mau',this)">Mau Ve</button>
-      </div>
-      <div class="products-grid" id="productsGrid"></div>
-    </section>
-  </div>
-
-  <!-- ═══════════ ABOUT PAGE ═══════════ -->
-  <div id="about" class="page">
-    <section style="padding-top:100px">
-      <div class="about-grid">
-        <div>
-          <div class="section-label">Ve Chung Toi</div>
-          <div class="section-title">Cau Chuyen Cua INK</div>
-          <p style="color:var(--ink-gray);line-height:1.8;font-size:16px;margin-bottom:28px">
-            Ra doi nam 2015, INK bat dau tu mot cua hang nho tai Ha Noi voi uoc mo mang den nhung san pham van phong pham chat luong cao nhat den tay nguoi dung Viet Nam. Qua hon 10 nam phat trien, chung toi da tro thanh thuong hieu van phong pham uy tin hang dau ca nuoc.
-          </p>
-          <p style="color:var(--ink-gray);line-height:1.8;font-size:16px;margin-bottom:36px">
-            Voi hon 500 san pham da dang tu but viet cao cap den thiet bi van phong hien dai, INK luon dat chat luong va su hai long cua khach hang len hang dau.
-          </p>
-          <div class="about-values">
-            <div class="value-card">
-              <div class="value-icon">&#11088;</div>
-              <div class="value-title">Chat Luong</div>
-              <div class="value-desc">100% san pham kiem tra chat luong truoc khi den tay khach hang</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">&#128666;</div>
-              <div class="value-title">Giao Hang Nhanh</div>
-              <div class="value-desc">Giao hang trong 24h noi thanh, 2-3 ngay tinh thanh pho khac</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">&#128176;</div>
-              <div class="value-title">Gia Ca Phai Chang</div>
-              <div class="value-desc">Cam ket gia tot nhat thi truong, hoan tien neu tim duoc re hon</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">&#128587;</div>
-              <div class="value-title">Ho Tro 24/7</div>
-              <div class="value-desc">Doi ngu tu van san sang ho tro ban moi luc moi noi</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="about-visual">
-            <div style="text-align:center;color:#fff">
-              <div style="font-family:'Playfair Display',serif;font-size:80px;font-weight:900;line-height:1">INK</div>
-              <div style="font-size:16px;opacity:.7;margin-top:12px">Since 2015</div>
-              <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center;max-width:280px">
-                <div style="background:rgba(255,255,255,.1);border-radius:16px;padding:20px">
-                  <div style="font-size:32px;font-weight:700">10+</div>
-                  <div style="font-size:12px;opacity:.7">Nam Kinh Nghiem</div>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:16px;padding:20px">
-                  <div style="font-size:32px;font-weight:700">50+</div>
-                  <div style="font-size:12px;opacity:.7">Nhan Vien</div>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:16px;padding:20px">
-                  <div style="font-size:32px;font-weight:700">10K+</div>
-                  <div style="font-size:12px;opacity:.7">Khach Hang</div>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:16px;padding:20px">
-                  <div style="font-size:32px;font-weight:700">63</div>
-                  <div style="font-size:12px;opacity:.7">Tinh Thanh</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ═══════════ BLOG PAGE ═══════════ -->
-  <div id="blog" class="page">
-    <section style="padding-top:100px">
-      <div class="section-label">Blog</div>
-      <div class="section-title" style="margin-bottom:8px">Kien Thuc Van Phong</div>
-      <p class="section-sub">Meo, huong dan va review san pham moi nhat</p>
-      <div class="blog-grid" style="margin-top:48px">
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#F3E8FF,#C4B5FD)">
-            <span style="font-size:48px">&#128393;</span>
-            <div class="blog-tag" style="background:var(--ink-purple)">Meo Hay</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>15 Apr 2025</span><span>3 phut doc</span></div>
-            <div class="blog-title">5 Loai But Tot Nhat Cho Hoc Sinh 2025</div>
-            <div class="blog-excerpt">Kham pha nhung chiec but viet duoc ua chuong nhat trong nam nay, kem theo danh gia chi tiet ve chat luong muc, do ben va gia ca.</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
-            <span style="font-size:48px">&#127755;</span>
-            <div class="blog-tag" style="background:var(--ink-orange)">Huong Dan</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>10 Apr 2025</span><span>5 phut doc</span></div>
-            <div class="blog-title">Cach Sap Xep Ban Lam Viec Hieu Qua</div>
-            <div class="blog-excerpt">Mot ban lam viec ngon nap giup tang nang suat lam viec len 40%. Chung toi se chia se nhung bi quyet don gian de to chuc khong gian lam viec.</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
-            <span style="font-size:48px">&#128214;</span>
-            <div class="blog-tag" style="background:var(--ink-crimson)">Review</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>05 Apr 2025</span><span>4 phut doc</span></div>
-            <div class="blog-title">So Tay Dotted vs Lined - Loai Nao Hop Voi Ban?</div>
-            <div class="blog-excerpt">Phan tich chi tiet uu nhuoc diem cua tung loai so tay pho bien, giup ban lua chon phu hop nhat voi nhu cau su dung.</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
-            <span style="font-size:48px">&#127919;</span>
-            <div class="blog-tag" style="background:#059669">Tip</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>01 Apr 2025</span><span>6 phut doc</span></div>
-            <div class="blog-title">Quan Ly Thu Chi Van Phong Hieu Qua</div>
-            <div class="blog-excerpt">Huong dan lap ke hoach mua sam van phong pham cho doanh nghiep, tiet kiem toi da chi phi hang thang.</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#DBEAFE,#BFDBFE)">
-            <span style="font-size:48px">&#127987;</span>
-            <div class="blog-tag" style="background:#2563EB">Xu Huong</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>28 Mar 2025</span><span>4 phut doc</span></div>
-            <div class="blog-title">Xu Huong Van Phong Pham Xanh - Bao Ve Moi Truong</div>
-            <div class="blog-excerpt">Nhung san pham van phong pham than thien moi truong dang duoc nhieu doanh nghiep lua chon su dung.</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-img" style="background:linear-gradient(135deg,#FEF9C3,#FDE68A)">
-            <span style="font-size:48px">&#9749;</span>
-            <div class="blog-tag" style="background:#D97706">Lifestyle</div>
-          </div>
-          <div class="blog-info">
-            <div class="blog-meta"><span>20 Mar 2025</span><span>3 phut doc</span></div>
-            <div class="blog-title">Bullet Journal - Nghệ Thuật To Chức Cuộc Sống</div>
-            <div class="blog-excerpt">Bullet Journal đang trở thành xu hướng toàn cầu, giúp mỗi người tổ chức công việc và cuộc sống khoa học hơn.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ═══════════ CONTACT PAGE ═══════════ -->
-  <div id="contact" class="page">
-    <section style="padding-top:100px">
-      <div class="section-label">Liên Hệ</div>
-      <div class="section-title" style="margin-bottom:8px">Chúng Tôi Luôn Sẵn Sàng Hỗ Trợ</div>
-      <p class="section-sub">ãy liên hệ với chúng tôi nếu bạn cần bất kỳ sự giúp đỡ nào</p>
-      <div class="contact-grid" style="margin-top:48px">
-        <div class="contact-form">
-          <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:24px">Gui Tin Nhan</h3>
-          <div class="form-group"><label>Họ và Tên</label><input type="text" placeholder="Nguyen Van A"></div>
-          <div class="form-group"><label>Email</label><input type="email" placeholder="email@example.com"></div>
-          <div class="form-group"><label>Số Điện Thoại</label><input type="tel" placeholder="0912 345 678"></div>
-          <div class="form-group"><label>Chủ Đề</label>
-            <select><option>Hỗ trợ sản phẩm</option><option>Đặt hàng số lượng lớn</option><option>Hợp tác kinh doanh</option><option>Khiếu nại</option></select>
-          </div>
-          <div class="form-group"><label>Nội Dung</label><textarea rows="4" placeholder="Noi dung can tu van..."></textarea></div>
-          <button class="btn-submit" onclick="showToast('Da gui tin nhan! Chung toi se phan hoi trong 24h.')">Gui Tin Nhan</button>
-        </div>
-        <div class="contact-info">
-          <div class="contact-card">
-            <div class="contact-icon">&#128205;</div>
-            <div>
-              <div class="contact-label">Địa Chỉ</div>
-              <div class="contact-val">79 Hồ Tùng Mậu, Cầu Giấy, Hà Nội</div>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">&#128222;</div>
-            <div>
-              <div class="contact-label">Số Điện Thoại</div>
-              <div class="contact-val">1800 1234 (Miễn Phí)</div>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">&#9993;</div>
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-val">support@inkstore.vn</div>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">&#128336;</div>
-            <div>
-              <div class="contact-label">Giờ Làm Việc</div>
-              <div class="contact-val">T2 - T7: 8:00 - 20:00<br><span style="font-size:13px;color:var(--ink-gray)">CN: 9:00 - 17:00</span></div>
-            </div>
-          </div>
-          <div style="background:var(--ink-light);border-radius:16px;padding:24px;margin-top:8px;border:1.5px solid var(--ink-border)">
-            <div style="font-weight:700;margin-bottom:14px;font-size:15px">Mạng Xã Hội</div>
-            <div style="display:flex;gap:12px">
-              <button onclick="showToast('Dang chuyen den Facebook...')" style="flex:1;padding:10px;border-radius:10px;background:#1877F2;color:#fff;border:none;cursor:pointer;font-weight:600;font-size:13px">Facebook</button>
-              <button onclick="showToast('Dang chuyen den Zalo...')" style="flex:1;padding:10px;border-radius:10px;background:#0068FF;color:#fff;border:none;cursor:pointer;font-weight:600;font-size:13px">Zalo</button>
-              <button onclick="showToast('Dang chuyen den Instagram...')" style="flex:1;padding:10px;border-radius:10px;background:linear-gradient(135deg,#E1306C,#F77737);color:#fff;border:none;cursor:pointer;font-weight:600;font-size:13px">Instagram</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="nav-logo">I<span style="color:var(--ink-crimson)">N</span>K</a>
+        <img src="logo.jpg" style="width:40px;margin-bottom:12px">
         <p>Chuyên cung cấp văn phòng phẩm chất lượng cao cho cá nhân và doanh nghiệp. Chất lượng là cam kết của chúng tôi.</p>
       </div>
       <div class="footer-col">
         <h4>Cửa Hàng</h4>
-        <a href="#" onclick="showPage('products');setActiveByIndex(1)">Sản Phẩm</a>
-        <a href="#" onclick="showPage('about');setActiveByIndex(2)">Giới Thiệu</a>
-        <a href="#" onclick="showPage('blog');setActiveByIndex(3)">Blog</a>
-        <a href="#" onclick="showPage('contact');setActiveByIndex(4)">Liên Hệ</a>
+        <a href="Trang_sản_phẩm/Giấy&sổ.html">Sản Phẩm</a>
+        <a href="Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
+        <a href="Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
+        <a href="Liên_hệ.html">Liên Hệ</a>
       </div>
       <div class="footer-col">
-        <h4>Ho Tro</h4>
+        <h4>Hỗ trợ</h4>
         <a href="#">Chính sách Đổi Trả</a>
         <a href="#">Hướng Dẫn Mua Hàng</a>
         <a href="#">Phương Thức Thanh Toán</a>
         <a href="#">Chính Sách Bảo Mật</a>
       </div>
       <div class="footer-col">
-        <h4>Lien He</h4>
-        <a href="#">1800 1234</a>
-        <a href="#">support@inkstore.vn</a>
-        <a href="#">123 Pho Hue, Ha Noi</a>
+        <h4>Liên Hệ</h4>
+        <a href="#">0913200206</a>
+        <a href="#">inkcorner.contact@gmail.com</a>
+        <a href="#">79, Hồ Tùng Mậu, Hà Nội</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 INK Store. All rights reserved.</span>
-      <span>Thiet ke boi INK Team</span>
+      <span>© 2026 iNK Store. Tất cả các quyền được bảo lưu.</span>
+      <span>Thiết kế bởi INK Team</span>
     </div>
   </footer>
 

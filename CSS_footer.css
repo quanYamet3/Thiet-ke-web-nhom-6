@@ -1,45 +1,11 @@
-
-        .site-footer {
-            padding: 40px 0;
-            margin-top: 40px;
-            border-top: 2px solid var(--primary-purple);
-            font-size: 14px;
-            background-color:white; 
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 35% 20% 20% 25%;
-            gap: 30px;
-        }
-
-        .footer-col h4 {
-            color: var(--primary-purple);
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .company-info ul li { margin-bottom: 10px; list-style: disc; margin-left: 18px;}
-        .highlight-text { color: var(--primary-orange); font-weight: bold; }
-
-        .footer-links ul li { border-bottom: 1px solid var(--border-color); }
-        .footer-links ul li a {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-        }
-        .footer-links ul li a::before {
-            content: "\203A";
-            color: var(--primary-orange);
-            font-size: 20px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .container-footer{
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 0px;
-            padding-right: 100px;
-        }
+footer {
+    background:var(--ink-dark); color:var(--ink-light);
+    padding:56px 7% 28px;
+  }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+  .footer-brand .nav-logo { display:block; margin-bottom:14px; color:#fff; }
+  .footer-brand p { font-size:14px; line-height:1.7; }
+  .footer-col h4 { color:#fff; font-size:14px; font-weight:700; margin-bottom:16px; }
+  .footer-col a { display:block; color:rgba(255,255,255,.6); font-size:14px; margin-bottom:10px; text-decoration:none; transition:.15s; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.1); padding-top:24px; display:flex; justify-content:space-between; font-size:13px; }
