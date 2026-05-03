@@ -697,9 +697,6 @@
       showCategories();
     }, 10000);
   }
-
-  // Khởi chạy khi load trang
-  showCategories();
-  </script>
+</script>
 </body>
 </html>
