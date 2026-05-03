@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng của bạn - InkCorner</title>
+    <link rel="stylesheet" href="CSS_Giỏ_hàng.css">
+    <link rel="stylesheet" href="CSS_header.css">
+    <link rel="stylesheet" href="CSS_footer.css">
+</head>
+<body>
+<header>
+<nav>
+    <a href="#" class="nav-logo">
+    <img src="logo.jpg" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="Trang_chủ.html">Trang Chủ</a>
+      <a href="Trang_sản_phẩm.html/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+      <a href="Giới_thiệu_Khuyến_mãi.html/gioithieu.html">Giới Thiệu</a>
+      <a href="Giới_thiệu_Khuyến_mãi.html/tintuc.html">Blog</a>
+      <a href="Liên_hệ.html">Liên Hệ</a>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+      </div>
+      <button class="btn-account" onclick="openModal('loginModal')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tài khoản
+      </button>
+      <!-- Nút giỏ hàng - Small pill -->
+      <button class="btn-cart" onclick="toggleCart()">
+        CART
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART OVERLAY & DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Gio Hang</h3>
+      <button class="cart-close" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p style="font-weight:600;margin-bottom:6px;">Giỏ hàng của tôi</p>
+        <p style="font-size:13px;">Hãy thêm sản phẩm vào giỏ hàng</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Tổng cộng:</span><strong id="cartTotal">0d</strong></div>
+      <button class="btn-checkout">Thanh Toán Ngay</button>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+
+    <div class="cart-wrapper">
+        
+        <div class="cart-header">
+            <h1>Giỏ hàng của bạn</h1>
+            <a href="#" class="continue-shopping">« Tiếp tục mua sắm</a>
+        </div>
+
+        <div class="cart-layout">
+            
+            <!-- Danh sách sản phẩm -->
+            <div class="cart-items-section">
+                
+                <!-- Sản phẩm TEST -->
+                <div class="cart-item">
+                    <div class="item-img">[Ảnh 1]</div>
+                    <div class="item-details">
+                        <div class="item-title">Sổ Tay Bìa Da Cao Cấp A5</div>
+                        <div class="item-variant">Màu sắc: Tím | Kẻ ngang</div>
+                        <div class="item-price">45.000đ</div>
+                    </div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="2" readonly>
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <div class="item-total">90.000đ</div>
+                    <button class="btn-remove" title="Xóa sản phẩm">×</button>
+                </div>
+
+                <!-- Sản phẩm 2 -->
+                <div class="cart-item">
+                    <div class="item-img">[Ảnh 2]</div>
+                    <div class="item-details">
+                        <div class="item-title">Bút Gel Deli Mực Đen 0.5mm</div>
+                        <div class="item-variant">Hộp 12 chiếc</div>
+                        <div class="item-price">60.000đ</div>
+                    </div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="1" readonly>
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <div class="item-total">60.000đ</div>
+                    <button class="btn-remove" title="Xóa sản phẩm">×</button>
+                </div>
+
+            </div>
+
+            <!-- Tóm tắt đơn hàng (Thanh toán) -->
+            <div class="cart-summary-section">
+                <div class="summary-title">Thông tin đơn hàng</div>
+                
+                <div class="summary-row">
+                    <span>Tạm tính (3 sản phẩm):</span>
+                    <span>150.000đ</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Phí giao hàng:</span>
+                    <span>Chưa tính</span>
+                </div>
+
+                <div class="summary-row" style="margin-top: 15px;">
+                    <input type="text" placeholder="Mã giảm giá (nếu có)" style="width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px 0 0 4px; outline: none;">
+                    <button style="width: 30%; background: var(--primary-purple); color: white; border: none; border-radius: 0 4px 4px 0; cursor: pointer;">Áp dụng</button>
+                </div>
+
+                <div class="summary-total">
+                    <span>Tổng cộng:</span>
+                    <span class="price">150.000đ</span>
+                </div>
+                <p style="font-size: 12px; color: #888; text-align: right; margin-top: 5px;">(Đã bao gồm VAT nếu có)</p>
+
+                <button class="btn-checkout">Tiến hành thanh toán</button>
+            </div>
+
+        </div>
+
+    </div>
+<br>
+<br>
+<br>
+<footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo">I<span style="color:var(--ink-crimson)">N</span>K</a>
+        <p>Chuyên cung cấp văn phòng phẩm chất lượng cao cho cá nhân và doanh nghiệp. Chất lượng là cam kết của chúng tôi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Cửa Hàng</h4>
+        <a href="Trang_sản_phẩm.html/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+        <a href="Giới_thiệu_Khuyến_mãi.html/gioithieu.html">Giới Thiệu</a>
+        <a href="Giới_thiệu_Khuyến_mãi.html/tintuc.html">Blog</a>
+        <a href="Liên_hệ.html">Liên Hệ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hỗ trợ</h4>
+        <a href="#">Chính sách Đổi Trả</a>
+        <a href="#">Hướng Dẫn Mua Hàng</a>
+        <a href="#">Phương Thức Thanh Toán</a>
+        <a href="#">Chính Sách Bảo Mật</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <a href="#">0913200206</a>
+        <a href="#">inkcorner.contact@gmail.com</a>
+        <a href="#">79, Hồ Tùng Mậu, Hà Nội</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iNK Store. Tất cả các quyền được bảo lưu.</span>
+      <span>Thiết kế bởi INK Team</span>
+    </div>
+  </footer>
+</body>
+</html>
