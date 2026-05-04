@@ -15,7 +15,7 @@
     <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
-      <a href="Trang_chủ.html" class="active">Trang Chủ</a>
+      <a href="Trang_chủ.php" class="active">Trang Chủ</a>
       <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
       <a href="Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
       <a href="Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
@@ -31,7 +31,7 @@
         Tài khoản
       </button>
       <!-- Nút giỏ hàng - Small pill -->
-      <button class="btn-cart" onclick="toggleCart()">
+      <button class="btn-cart" onclick="document.location='Giỏ_hàng.php'">
         CART
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
@@ -150,18 +150,6 @@
           <div class="cat-count">2 sản phẩm</div>
         </div>
       </div>
-    </section>
-
-    <!-- FEATURED PRODUCTS -->
-    <section style="padding-top:0">
-      <div class="products-header">
-        <div>
-          <div class="section-label">Nổi Bật</div>
-          <div class="section-title">Sản phẩm bán chạy</div>
-        </div>
-        <button class="filter-tab active" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.html'">Xem Tất Cả</button>
-      </div>
-      <div class="products-grid" id="featuredGrid"></div>
     </section>
 
     <!-- BLOG PREVIEW -->

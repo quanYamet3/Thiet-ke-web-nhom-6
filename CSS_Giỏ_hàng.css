@@ -271,3 +271,15 @@
                 margin-left: auto;
             }
         }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            padding-left:150px;
+        }
+
+        .breadcrumb span {
+            color: var(--primary-purple);
+            font-weight: bold;
+        }
