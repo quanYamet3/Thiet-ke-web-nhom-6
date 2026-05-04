@@ -15,7 +15,7 @@
     <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
-      <a href="Trang_chủ.html">Trang Chủ</a>
+      <a href="Trang_chủ.php">Trang Chủ</a>
       <a href="Trang_sản_phẩm.html/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
       <a href="Giới_thiệu_Khuyến_mãi.html/gioithieu.html">Giới Thiệu</a>
       <a href="Giới_thiệu_Khuyến_mãi.html/tintuc.html">Blog</a>
@@ -67,12 +67,15 @@
 </header>
 <br>
 <br>
-
+<section class="product-area">
+            <div class="breadcrumb">
+                Trang chủ / <span>Giỏ hàng</span>
+            </div>
     <div class="cart-wrapper">
         
         <div class="cart-header">
             <h1>Giỏ hàng của bạn</h1>
-            <a href="#" class="continue-shopping">« Tiếp tục mua sắm</a>
+            <a href="Trang_chủ.php" class="continue-shopping">« Tiếp tục mua sắm</a>
         </div>
 
         <div class="cart-layout">
@@ -130,10 +133,7 @@
                     <span>Chưa tính</span>
                 </div>
 
-                <div class="summary-row" style="margin-top: 15px;">
-                    <input type="text" placeholder="Mã giảm giá (nếu có)" style="width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px 0 0 4px; outline: none;">
-                    <button style="width: 30%; background: var(--primary-purple); color: white; border: none; border-radius: 0 4px 4px 0; cursor: pointer;">Áp dụng</button>
-                </div>
+                
 
                 <div class="summary-total">
                     <span>Tổng cộng:</span>
