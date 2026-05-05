@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="CSS_header.css">
   <link rel="stylesheet" href="CSS_footer.css">
 </head>
-<header>
+
+<body>
+  <header>
   <!-- Thanh điều hướng -->
   <nav>
     <a href="#" class="nav-logo">
@@ -65,8 +67,6 @@
     </div>
   </div>
 </header>
-<body>
-  
 <!-- ═══════════ HOME PAGE ═══════════ -->
   <div id="home" class="page active">
     <!-- HERO -->
@@ -450,7 +450,7 @@
     t.textContent = msg; t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2800);
   }
-
+</script>
   // ── AI CHAT ──
 <button class="ai-toggle" onclick="toggleAI()">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -477,7 +477,6 @@
     <div class="ai-chip" style="padding:6px 12px; background:var(--ink-light); border-radius:14px; font-size:12px; cursor:pointer; white-space:nowrap;" onclick="sendAI('Có mã giảm giá không?')">Mã giảm giá</div>
   </div>
 </div>
-
 <script>
   function toggleAI() {
     const aiBox = document.getElementById('aiBox');
