@@ -1,3 +1,9 @@
+<?php 
+include '../ket_noi.php'; 
+// Lấy sản phẩm thuộc danh mục Giấy & Sổ (category_id = 1)
+$sql = "SELECT * FROM products WHERE category_id = 1";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -13,11 +19,11 @@
 <br>
 <br>
 <br>
-    <div class="container main-content">
+    <div class="container main-content" style="margin-top: 100px;">
         <aside class="sidebar">
             <h3>DANH MỤC SẢN PHẨM</h3>
             <ul class="category-list">
-                <li><a href="sanpham.php">Tất cả sản phẩm</a></li>
+<li><a href="Tất_cả_sản_phẩm.php">Tất cả sản phẩm</a></li>
                 <li><a href="Giấy&sổ.php" class="active">Giấy & Sổ</a></li>
                 <li><a href="Bút_viết.php">Bút viết</a></li>
                 <li><a href="Kẹp&Ghim.php">Kẹp & Ghim</a></li>
@@ -29,66 +35,48 @@
         </aside>
 
         <section class="product-area">
-            <div class="breadcrumb">
-                Trang chủ / Sản phẩm / <span>Giấy & Sổ</span>
-            </div>
-
+            <div class="breadcrumb">Trang chủ / Sản phẩm / <span>Giấy & Sổ</span></div>
             <div class="product-grid">
-                <div class="product-card">
-                    <img src="#" alt="Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001" class="product-img">
-                    <div class="product-title">Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001</div>
-                    <div class="product-price">60.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ lò xo A4 - Campus - 80gsm - VP002" class="product-img">
-                    <div class="product-title">Sổ lò xo A4 - Campus - 80gsm - VP002</div>
-                    <div class="product-price">109.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Double A - 70gsm - VP003" class="product-img">
-                    <div class="product-title">Giấy in A4 - Double A - 70gsm - VP003</div>
-                    <div class="product-price">86.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Paper One - 80gsm - VP004" class="product-img">
-                    <div class="product-title">Giấy in A4 - Paper One - 80gsm - VP004</div>
-                    <div class="product-price">130.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note vàng - 3M Post-it - 75gsm - VP005" class="product-img">
-                    <div class="product-title">Giấy note vàng - 3M Post-it - 75gsm - VP005</div>
-                    <div class="product-price">18.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note 5 màu - Pronoti - 75gsm - VP006" class="product-img">
-                    <div class="product-title">Giấy note 5 màu - Pronoti - 75gsm - VP006</div>
-                    <div class="product-price">14.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in ảnh - Kodak - 180gsm - VP007" class="product-img">
-                    <div class="product-title">Giấy in ảnh - Kodak - 180gsm - VP007</div>
-                    <div class="product-price">155.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ kế toán - Hải Tiến - 70gsm - VP008" class="product-img">
-                    <div class="product-title">Sổ kế toán - Hải Tiến - 70gsm - VP008</div>
-                    <div class="product-price">37.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
+                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                    <div class="product-card">
+                        <a href="chi_tiet.php?id=<?php echo $row['id']; ?>" style="text-decoration: none; color: inherit;">
+                            <img src="../images/<?php echo basename($row['image']); ?>" alt="sp" class="product-img">
+                            <div class="product-title"><?php echo $row['name']; ?></div>
+                        </a>
+                        <div class="product-price"><?php echo number_format($row['price'], 0, ',', '.'); ?>đ</div>
+                        <div style="display:flex; gap:8px; margin-top:10px;">
+    <button class="btn-add-cart" style="flex:1;"
+        onclick="addToCart(
+            <?php echo $row['id']; ?>,
+            '<?php echo addslashes($row['name']); ?>',
+            <?php echo $row['price']; ?>,
+            '<?php echo basename($row['image']); ?>'
+        )">
+        Thêm vào giỏ
+    </button>
+
+<button style="flex:1; background:#d8511c; color:#fff;
+        border-radius:6px; font-weight:bold; font-size:14px;
+        border:none; cursor:pointer; padding:10px;"
+    onclick="buyNow(
+        <?php echo $row['id']; ?>,
+        '<?php echo addslashes($row['name']); ?>',
+        <?php echo $row['price']; ?>,
+        '<?php echo basename($row['image']); ?>',
+        1
+    )">
+    Mua ngay
+</button>
+</div>
+                    </div>
+                <?php endwhile; ?>
             </div>
         </section>
-
     </div>
     <br>
     <br>
     <?php include 'footer.php'; ?>
     <?php include 'chat_main.php'; ?>
+    <script src="../js_gh.js"></script>
 </body>
 </html>
