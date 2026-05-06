@@ -1,23 +1,62 @@
+<?php 
+include '../ket_noi.php'; 
+// Lấy sản phẩm thuộc danh mục Giấy & Sổ (category_id = 1)
+$sql = "SELECT * FROM products WHERE category_id = 1";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS_San_Pham.css">
-    <link rel="stylesheet" href="CSS_header.css">
-    <link rel="stylesheet" href="CSS_footer.css"> 
-    <link rel="stylesheet" href="CSS_AI.css">
+    <link rel="stylesheet" href="../CSS_header.css">
+    <link rel="stylesheet" href="../CSS_footer.css"> 
+    <title>Giấy & Sổ - Ink Store</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
-<br>
-<br>
-<br>
-    <div class="container main-content">
+    <header>
+        <nav>
+            <a href="#" class="nav-logo"><img src="../logo.jpg" class="logo-img"></a>
+            <div class="nav-links">
+                <a href="../Trang_chủ.php">Trang Chủ</a>
+                <a href="Giấy&sổ.php" class="active">Sản Phẩm</a>
+                <a href="../Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
+                <a href="../Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
+                <a href="../Liên_hệ.html">Liên Hệ</a>
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <input type="text" placeholder="Tìm kiếm..." id="searchInput">
+                </div>
+                <button class="btn-account">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Tài khoản
+                </button>
+                <button class="btn-cart" onclick="toggleCart()">
+                    CART
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </nav>
+        <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <h3>Giỏ Hàng</h3>
+        <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div id="cartFooter"></div>
+</div>
+    </header>
+
+    <div class="container main-content" style="margin-top: 100px;">
         <aside class="sidebar">
             <h3>DANH MỤC SẢN PHẨM</h3>
             <ul class="category-list">
-                <li><a href="sanpham.php">Tất cả sản phẩm</a></li>
+<li><a href="Tất_cả_sản_phẩm.php">Tất cả sản phẩm</a></li>
                 <li><a href="Giấy&sổ.php" class="active">Giấy & Sổ</a></li>
                 <li><a href="Bút_viết.php">Bút viết</a></li>
                 <li><a href="Kẹp&Ghim.php">Kẹp & Ghim</a></li>
@@ -29,66 +68,78 @@
         </aside>
 
         <section class="product-area">
-            <div class="breadcrumb">
-                Trang chủ / Sản phẩm / <span>Giấy & Sổ</span>
-            </div>
-
+            <div class="breadcrumb">Trang chủ / Sản phẩm / <span>Giấy & Sổ</span></div>
             <div class="product-grid">
-                <div class="product-card">
-                    <img src="#" alt="Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001" class="product-img">
-                    <div class="product-title">Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001</div>
-                    <div class="product-price">60.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ lò xo A4 - Campus - 80gsm - VP002" class="product-img">
-                    <div class="product-title">Sổ lò xo A4 - Campus - 80gsm - VP002</div>
-                    <div class="product-price">109.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Double A - 70gsm - VP003" class="product-img">
-                    <div class="product-title">Giấy in A4 - Double A - 70gsm - VP003</div>
-                    <div class="product-price">86.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Paper One - 80gsm - VP004" class="product-img">
-                    <div class="product-title">Giấy in A4 - Paper One - 80gsm - VP004</div>
-                    <div class="product-price">130.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note vàng - 3M Post-it - 75gsm - VP005" class="product-img">
-                    <div class="product-title">Giấy note vàng - 3M Post-it - 75gsm - VP005</div>
-                    <div class="product-price">18.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note 5 màu - Pronoti - 75gsm - VP006" class="product-img">
-                    <div class="product-title">Giấy note 5 màu - Pronoti - 75gsm - VP006</div>
-                    <div class="product-price">14.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in ảnh - Kodak - 180gsm - VP007" class="product-img">
-                    <div class="product-title">Giấy in ảnh - Kodak - 180gsm - VP007</div>
-                    <div class="product-price">155.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ kế toán - Hải Tiến - 70gsm - VP008" class="product-img">
-                    <div class="product-title">Sổ kế toán - Hải Tiến - 70gsm - VP008</div>
-                    <div class="product-price">37.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
+                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                    <div class="product-card">
+                        <a href="chi_tiet.php?id=<?php echo $row['id']; ?>" style="text-decoration: none; color: inherit;">
+                            <img src="../images/<?php echo basename($row['image']); ?>" alt="sp" class="product-img">
+                            <div class="product-title"><?php echo $row['name']; ?></div>
+                        </a>
+                        <div class="product-price"><?php echo number_format($row['price'], 0, ',', '.'); ?>đ</div>
+                        <div style="display:flex; gap:8px; margin-top:10px;">
+    <button class="btn-add-cart" style="flex:1;"
+        onclick="addToCart(
+            <?php echo $row['id']; ?>,
+            '<?php echo addslashes($row['name']); ?>',
+            <?php echo $row['price']; ?>,
+            '<?php echo basename($row['image']); ?>'
+        )">
+        Thêm vào giỏ
+    </button>
+
+<button style="flex:1; background:#d8511c; color:#fff;
+        border-radius:6px; font-weight:bold; font-size:14px;
+        border:none; cursor:pointer; padding:10px;"
+    onclick="buyNow(
+        <?php echo $row['id']; ?>,
+        '<?php echo addslashes($row['name']); ?>',
+        <?php echo $row['price']; ?>,
+        '<?php echo basename($row['image']); ?>',
+        1
+    )">
+    Mua ngay
+</button>
+</div>
+                    </div>
+                <?php endwhile; ?>
             </div>
         </section>
-
     </div>
-    <br>
-    <br>
-    <?php include 'footer.php'; ?>
-    <?php include 'chat_main.php'; ?>
-</body>
+
+        <br>
+            <br>
+    <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../logo.jpg" style="width:40px;margin-bottom:12px">
+        <p>Chuyên cung cấp văn phòng phẩm chất lượng cao cho cá nhân và doanh nghiệp. Chất lượng là cam kết của chúng tôi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Cửa Hàng</h4>
+        <a href="Giấy&sổ.html">Sản phẩm</a>
+        <a href="../Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới thiệu</a>
+        <a href="../Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
+        <a href="../Liên_hệ.html">Liên hệ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hỗ trợ</h4>
+        <a href="#">Chính sách đổi Trả</a>
+        <a href="#">Hướng dẫn mua hàng</a>
+        <a href="#">Phương thức thanh toán</a>
+        <a href="#">Chính sách bảo mật</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <a href="#">0913200206</a>
+        <a href="#">inkcorner.contact@gmail.com</a>
+        <a href="#">79, Hồ Tùng Mậu, Hà Nội</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iNK Store. Tất cả các quyền được bảo lưu.</span>
+      <span>Thiết kế bởi INK Team</span>
+    </div>
+  </footer>
+    <script src="../js_gh.js"></script> </body>
 </html>
