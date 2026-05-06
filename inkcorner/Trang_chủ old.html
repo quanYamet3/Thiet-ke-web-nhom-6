@@ -16,7 +16,7 @@
     </a>
     <div class="nav-links">
       <a href="Trang_chủ.html" class="active">Trang Chủ</a>
-      <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+      <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.php">Sản Phẩm</a>
       <a href="Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
       <a href="Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
       <a href="Liên_hệ.html">Liên Hệ</a>
@@ -24,9 +24,9 @@
     <div class="nav-right">
       <div class="search-box">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()" onkeydown="if(event.key==='Enter'){const q=this.value.trim();if(q)window.location.href='Trang_sản_phẩm/Tất_cả_sản_phẩm.php?q='+encodeURIComponent(q)}">
       </div>
-      <button class="btn-account" onclick="openModal('loginModal')">
+      <button class="btn-account" onclick="window.location.href='User.php'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Tài khoản
       </button>
@@ -81,7 +81,7 @@
         <h1>Văn phòng phẩm <em>Đẳng cấp</em> cho mọi nhu cầu</h1>
         <p>iNK cung cấp đầy đủ sản phẩm văn phòng phẩm chất lượng cao, từ bút, sổ tay đến thiết bị văn phòng hiện đại.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.html'">Mua Ngay</button>
+          <button class="btn-primary" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.php'">Mua Ngay</button>
           <button class="btn-secondary" onclick="document.location='Giới_thiệu_Khuyến_mãi/gioithieu.html'">Khám Phá INK</button>
         </div>
       </div>
@@ -134,7 +134,7 @@
           <div class="cat-name">Bút Viết</div>
           <div class="cat-count">9 sản phẩm</div>
         </div>
-        <div class="cat-card" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.html';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.php';setActiveByIndex(1)">
           <div class="cat-icon">&#128214;</div>
           <div class="cat-name">Sổ Tay</div>
           <div class="cat-count">3 sản phẩm</div>
@@ -144,7 +144,7 @@
           <div class="cat-name">Văn Phòng</div>
           <div class="cat-count">24 sản phẩm</div>
         </div>
-        <div class="cat-card" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.html';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.php';setActiveByIndex(1)">
           <div class="cat-icon">&#128203;</div>
           <div class="cat-name">Giấy In</div>
           <div class="cat-count">2 sản phẩm</div>
@@ -159,7 +159,7 @@
           <div class="section-label">Nổi Bật</div>
           <div class="section-title">Sản phẩm bán chạy</div>
         </div>
-        <button class="filter-tab active" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.html'">Xem Tất Cả</button>
+        <button class="filter-tab active" onclick="document.location='Trang_sản_phẩm/Tất_cả_sản_phẩm.php'">Xem Tất Cả</button>
       </div>
       <div class="products-grid" id="featuredGrid"></div>
     </section>
@@ -222,17 +222,17 @@
       </div>
       <div class="footer-col">
         <h4>Cửa Hàng</h4>
-        <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản phẩm</a>
+        <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.php">Sản phẩm</a>
         <a href="Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới thiệu</a>
         <a href="Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
         <a href="Liên_hệ.html">Liên hệ</a>
       </div>
       <div class="footer-col">
         <h4>Hỗ trợ</h4>
-        <a href="#">Chính sách đổi trả</a>
-        <a href="#">Điều khoản sử dụng</a>
-        <a href="#">Chính sách vận chuyển</a>
-        <a href="#">Chính sách bảo mật</a>
+        <a href="chinh_sach.php?page=doi-tra">Chính sách đổi trả</a>
+        <a href="chinh_sach.php?page=dieu-khoan">Điều khoản sử dụng</a>
+        <a href="chinh_sach.php?page=van-chuyen">Chính sách vận chuyển</a>
+        <a href="chinh_sach.php?page=bao-mat">Chính sách bảo mật</a>
       </div>
       <div class="footer-col">
         <h4>Liên Hệ</h4>

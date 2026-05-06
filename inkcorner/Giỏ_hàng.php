@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông tin cá nhân - InkCorner</title>
-    <link rel="stylesheet" href="User.css">
+    <title>Giỏ hàng của bạn - InkCorner</title>
+    <link rel="stylesheet" href="CSS_Giỏ_hàng.css">
     <link rel="stylesheet" href="CSS_header.css">
     <link rel="stylesheet" href="CSS_footer.css">
 </head>
@@ -15,11 +15,11 @@
     <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
-      <a href="#">Trang Chủ</a>
-      <a href="#">Sản Phẩm</a>
-      <a href="#">Giới Thiệu</a>
-      <a href="#">Blog</a>
-      <a href="#">Liên Hệ</a>
+      <a href="Trang_chủ.php">Trang Chủ</a>
+      <a href="Trang_sản_phẩm.html/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+      <a href="Giới_thiệu_Khuyến_mãi.html/gioithieu.html">Giới Thiệu</a>
+      <a href="Giới_thiệu_Khuyến_mãi.html/tintuc.html">Blog</a>
+      <a href="Liên_hệ.html">Liên Hệ</a>
     </div>
     <div class="nav-right">
       <div class="search-box">
@@ -67,73 +67,90 @@
 </header>
 <br>
 <br>
-<br>
-    <div class="profile-card">
+<section class="product-area">
+            <div class="breadcrumb">
+                Trang chủ / <span>Giỏ hàng</span>
+            </div>
+    <div class="cart-wrapper">
         
-        <!-- Khu vực ảnh đại diện -->
-        <div class="profile-sidebar">
-            <div class="avatar-preview">
-                A
-                <!-- Khi có ảnh thật sẽ dùng thẻ img dưới đây -->
-                <!-- <img src="link-anh.jpg" alt="Avatar"> -->
-            </div>
-            <button class="btn-upload">Chọn Ảnh</button>
-            <div class="avatar-note">
-                Dụng lượng file tối đa 1 MB<br>
-                Định dạng: .JPEG, .PNG
-            </div>
+        <div class="cart-header">
+            <h1>Giỏ hàng của bạn</h1>
+            <a href="Trang_chủ.php" class="continue-shopping">« Tiếp tục mua sắm</a>
         </div>
 
-        <!-- Khu vực form nhập liệu -->
-        <div class="profile-content">
-            <h2>Hồ Sơ Của Tôi</h2>
-            <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
-
-            <form action="#" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullname">Họ và tên</label>
-                        <input type="text" id="fullname" value="Nguyễn Văn A">
+        <div class="cart-layout">
+            
+            <!-- Danh sách sản phẩm -->
+            <div class="cart-items-section">
+                
+                <!-- Sản phẩm TEST -->
+                <div class="cart-item">
+                    <div class="item-img">[Ảnh 1]</div>
+                    <div class="item-details">
+                        <div class="item-title">Sổ Tay Bìa Da Cao Cấp A5</div>
+                        <div class="item-variant">Màu sắc: Tím | Kẻ ngang</div>
+                        <div class="item-price">45.000đ</div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Số điện thoại</label>
-                        <input type="tel" id="phone" value="0913200206">
+                    <div class="quantity-control">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="2" readonly>
+                        <button class="quantity-btn">+</button>
                     </div>
+                    <div class="item-total">90.000đ</div>
+                    <button class="btn-remove" title="Xóa sản phẩm">×</button>
                 </div>
 
-                <div class="form-group full-width">
-                    <label for="email">Email đăng nhập</label>
-                    <input type="email" id="email" value="inkcorner.contact@gmail.com" disabled>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="gender">Giới tính</label>
-                        <select id="gender">
-                            <option value="male" selected>Nam</option>
-                            <option value="female">Nữ</option>
-                            <option value="other">Khác</option>
-                        </select>
+                <!-- Sản phẩm 2 -->
+                <div class="cart-item">
+                    <div class="item-img">[Ảnh 2]</div>
+                    <div class="item-details">
+                        <div class="item-title">Bút Gel Deli Mực Đen 0.5mm</div>
+                        <div class="item-variant">Hộp 12 chiếc</div>
+                        <div class="item-price">60.000đ</div>
                     </div>
-                    <div class="form-group">
-                        <label for="dob">Ngày sinh</label>
-                        <input type="date" id="dob" value="1995-01-01">
+                    <div class="quantity-control">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="1" readonly>
+                        <button class="quantity-btn">+</button>
                     </div>
+                    <div class="item-total">60.000đ</div>
+                    <button class="btn-remove" title="Xóa sản phẩm">×</button>
                 </div>
 
-                <div class="form-group full-width">
-                    <label for="address">Địa chỉ giao hàng mặc định</label>
-                    <input type="text" id="address" value="29 đường DD11, Quận 12, Thành phố Hồ Chí Minh">
+            </div>
+
+            <!-- Tóm tắt đơn hàng (Thanh toán) -->
+            <div class="cart-summary-section">
+                <div class="summary-title">Thông tin đơn hàng</div>
+                
+                <div class="summary-row">
+                    <span>Tạm tính (3 sản phẩm):</span>
+                    <span>150.000đ</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Phí giao hàng:</span>
+                    <span>Chưa tính</span>
                 </div>
 
-                <div class="action-buttons">
-                    <button type="button" class="btn-save">LƯU THAY ĐỔI</button>
-                    <button type="button" class="btn-cancel">Hủy</button>
+                
+
+                <div class="summary-total">
+                    <span>Tổng cộng:</span>
+                    <span class="price">150.000đ</span>
                 </div>
-            </form>
+                <p style="font-size: 12px; color: #888; text-align: right; margin-top: 5px;">(Đã bao gồm VAT nếu có)</p>
+
+                <button class="btn-checkout">Tiến hành thanh toán</button>
+            </div>
+
         </div>
+
     </div>
-    <footer>
+<br>
+<br>
+<br>
+<footer>
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="nav-logo">I<span style="color:var(--ink-crimson)">N</span>K</a>
@@ -141,10 +158,10 @@
       </div>
       <div class="footer-col">
         <h4>Cửa Hàng</h4>
-        <a href="#">Sản Phẩm</a>
-        <a href="#">Giới Thiệu</a>
-        <a href="#">Blog</a>
-        <a href="#">Liên Hệ</a>
+        <a href="Trang_sản_phẩm.html/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+        <a href="Giới_thiệu_Khuyến_mãi.html/gioithieu.html">Giới Thiệu</a>
+        <a href="Giới_thiệu_Khuyến_mãi.html/tintuc.html">Blog</a>
+        <a href="Liên_hệ.html">Liên Hệ</a>
       </div>
       <div class="footer-col">
         <h4>Hỗ trợ</h4>

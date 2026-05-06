@@ -1,3 +1,66 @@
+<?php
+session_start();
+require_once 'config.php';
+
+// Lấy thông tin user nếu đã đăng nhập
+$user = null;
+if (isset($_SESSION['user_id'])) {
+    $stmt = $conn->prepare("SELECT id, fullname, email FROM users WHERE id = ?");
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+}
+
+// Xử lý đăng nhập từ trang chủ
+$login_error = '';
+if (isset($_POST['action']) && $_POST['action'] === 'login') {
+    $email    = trim($_POST['email']);
+    $password = $_POST['password'];
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $found = $stmt->get_result()->fetch_assoc();
+    if ($found && password_verify($password, $found['password_hash'])) {
+        $_SESSION['user_id']   = $found['id'];
+        $_SESSION['user_name'] = $found['fullname'];
+        header("Location: Trang_chủ.php");
+        exit;
+    } else {
+        $login_error = 'Email hoặc mật khẩu không đúng!';
+    }
+}
+
+// Xử lý đăng ký từ trang chủ
+$register_error = '';
+$register_ok    = false;
+if (isset($_POST['action']) && $_POST['action'] === 'register') {
+    $fullname = trim($_POST['reg_fullname']);
+    $email    = trim($_POST['reg_email']);
+    $phone    = trim($_POST['reg_phone']);
+    $password = $_POST['reg_password'];
+    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    if ($check->get_result()->num_rows > 0) {
+        $register_error = 'Email này đã được sử dụng!';
+    } else {
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+        $ins  = $conn->prepare("INSERT INTO users (fullname, email, phone, password_hash) VALUES (?, ?, ?, ?)");
+        $ins->bind_param("ssss", $fullname, $email, $phone, $hash);
+        if ($ins->execute()) $register_ok = true;
+        else $register_error = 'Đăng ký thất bại!';
+    }
+}
+
+// Đăng xuất
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: Trang_chủ.php");
+    exit;
+}
+
+$cart_count = array_sum($_SESSION['cart'] ?? []);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,32 +70,185 @@
   <link rel="stylesheet" href="CSS_trang_chủ.css">
   <link rel="stylesheet" href="CSS_header.css">
   <link rel="stylesheet" href="CSS_footer.css">
-</head>
+  <style>
+    /* DROPDOWN TÀI KHOẢN */
+    .account-wrapper { position: relative; }
+    .dropdown-menu {
+      display: none; position: absolute;
+      top: calc(100% + 10px); right: 0;
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      border: 1px solid #e9d5ff; min-width: 220px;
+      z-index: 5000; overflow: hidden;
+    }
+    .dropdown-menu.open { display: block; }
+    .dropdown-header {
+      padding: 16px 18px 12px;
+      background: linear-gradient(135deg,#5c3290,#7c3aed); color:#fff;
+    }
+    .dropdown-header .d-name  { font-weight:700; font-size:15px; }
+    .dropdown-header .d-email { font-size:12px; opacity:.8; margin-top:2px; }
+    .dropdown-item {
+      display:flex; align-items:center; gap:10px;
+      padding:12px 18px; font-size:14px; color:#333;
+      text-decoration:none; transition:background .15s;
+      border:none; background:none; width:100%; text-align:left; cursor:pointer;
+    }
+    .dropdown-item:hover { background:#f3e8ff; color:#5c3290; }
+    .dropdown-divider { height:1px; background:#f0e8ff; margin:4px 0; }
+    .dropdown-item.logout { color:#d8511c; }
+    .dropdown-item.logout:hover { background:#fff5f0; }
 
+    /* SEARCH LIVE */
+    .search-box { position: relative; }
+    .search-results {
+      position:absolute; top:100%; left:0; right:0;
+      background:#fff; border-radius:0 0 12px 12px;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
+      border:1px solid #e9d5ff; border-top:none;
+      max-height:300px; overflow-y:auto;
+      z-index:4000; display:none;
+    }
+    .search-results.show { display:block; }
+    .search-result-item {
+      display:flex; align-items:center; gap:12px;
+      padding:10px 16px; cursor:pointer;
+      transition:background .15s; text-decoration:none; color:#333;
+    }
+    .search-result-item:hover { background:#f3e8ff; }
+    .search-result-name  { font-size:13px; font-weight:500; flex:1; }
+    .search-result-price { font-size:13px; color:#d8511c; font-weight:600; }
+    .search-result-empty { padding:16px; text-align:center; color:#999; font-size:13px; }
+
+    /* POPUP AUTH */
+    .auth-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:9999; align-items:center; justify-content:center; }
+    .auth-overlay.show { display:flex; }
+    .auth-box { background:#fff; border-radius:16px; padding:36px 32px; width:420px; max-width:95vw; box-shadow:0 20px 60px rgba(0,0,0,.2); position:relative; }
+    .auth-close { position:absolute; top:14px; right:18px; background:none; border:none; font-size:22px; cursor:pointer; color:#999; }
+    .auth-tabs { display:flex; margin-bottom:24px; border-bottom:2px solid #eee; }
+    .auth-tab { flex:1; padding:10px; text-align:center; font-weight:bold; font-size:15px; cursor:pointer; color:#999; border-bottom:3px solid transparent; margin-bottom:-2px; transition:.2s; }
+    .auth-tab.active { color:#5c3290; border-bottom-color:#5c3290; }
+    .auth-form { display:none; }
+    .auth-form.active { display:block; }
+    .auth-form h2 { font-size:22px; color:#5c3290; margin-bottom:6px; }
+    .auth-form p  { font-size:13px; color:#888; margin-bottom:20px; }
+    .auth-field { margin-bottom:14px; }
+    .auth-field label { display:block; font-size:13px; font-weight:bold; color:#444; margin-bottom:6px; }
+    .auth-field input { width:100%; padding:11px 14px; border:1.5px solid #e0e0e0; border-radius:8px; font-size:14px; outline:none; transition:.2s; }
+    .auth-field input:focus { border-color:#5c3290; }
+    .btn-auth { width:100%; padding:13px; background:#5c3290; color:#fff; border:none; border-radius:8px; font-size:15px; font-weight:bold; cursor:pointer; margin-top:6px; }
+    .btn-auth:hover { background:#4a2873; }
+    .auth-error   { background:#fff0f0; color:#c0392b; padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:14px; border:1px solid #f5c6cb; }
+    .auth-success { background:#f0fff4; color:#1a7a3c; padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:14px; border:1px solid #b2dfdb; }
+    .auth-switch { text-align:center; font-size:13px; color:#888; margin-top:16px; }
+    .auth-switch a { color:#5c3290; cursor:pointer; font-weight:bold; }
+  </style>
+</head>
 <body>
-  <header>
-  <!-- Thanh điều hướng -->
+
+<?php if ($login_error || $register_error || $register_ok): ?>
+<!-- Hiện popup nếu có lỗi -->
+<script>window.onload = function(){ document.getElementById('authOverlay').classList.add('show'); }</script>
+<?php endif; ?>
+
+<!-- POPUP ĐĂNG NHẬP / ĐĂNG KÝ -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-box">
+    <button class="auth-close" onclick="document.getElementById('authOverlay').classList.remove('show')">×</button>
+    <div class="auth-tabs">
+      <div class="auth-tab <?= $register_error||$register_ok ? '':'active' ?>" onclick="switchAuthTab('login',this)">Đăng nhập</div>
+      <div class="auth-tab <?= $register_error||$register_ok ? 'active':'' ?>" onclick="switchAuthTab('register',this)">Đăng ký</div>
+    </div>
+    <!-- ĐĂNG NHẬP -->
+    <div class="auth-form <?= $register_error||$register_ok ? '':'active' ?>" id="auth-login">
+      <h2>Chào mừng trở lại!</h2>
+      <p>Đăng nhập để mua sắm dễ dàng hơn</p>
+      <?php if ($login_error): ?><div class="auth-error">⚠️ <?= $login_error ?></div><?php endif; ?>
+      <form method="POST">
+        <input type="hidden" name="action" value="login">
+        <div class="auth-field"><label>Email</label><input type="email" name="email" placeholder="Nhập email..." required></div>
+        <div class="auth-field"><label>Mật khẩu</label><input type="password" name="password" placeholder="Nhập mật khẩu..." required></div>
+        <button type="submit" class="btn-auth">Đăng nhập</button>
+      </form>
+      <div class="auth-switch">Chưa có tài khoản? <a onclick="switchAuthTab('register',null)">Đăng ký ngay</a></div>
+    </div>
+    <!-- ĐĂNG KÝ -->
+    <div class="auth-form <?= $register_error||$register_ok ? 'active':'' ?>" id="auth-register">
+      <h2>Tạo tài khoản</h2>
+      <p>Đăng ký để mua hàng dễ dàng hơn</p>
+      <?php if ($register_error): ?><div class="auth-error">⚠️ <?= $register_error ?></div><?php endif; ?>
+      <?php if ($register_ok): ?><div class="auth-success">✅ Đăng ký thành công! Hãy đăng nhập.</div><?php endif; ?>
+      <form method="POST">
+        <input type="hidden" name="action" value="register">
+        <div class="auth-field"><label>Họ và tên</label><input type="text" name="reg_fullname" placeholder="Nhập họ tên..." required></div>
+        <div class="auth-field"><label>Email</label><input type="email" name="reg_email" placeholder="Nhập email..." required></div>
+        <div class="auth-field"><label>Số điện thoại</label><input type="tel" name="reg_phone" placeholder="Nhập SĐT..."></div>
+        <div class="auth-field"><label>Mật khẩu</label><input type="password" name="reg_password" placeholder="Tạo mật khẩu..." required></div>
+        <button type="submit" class="btn-auth" style="background:#d8511c;">Đăng ký</button>
+      </form>
+      <div class="auth-switch">Đã có tài khoản? <a onclick="switchAuthTab('login',null)">Đăng nhập</a></div>
+    </div>
+  </div>
+</div>
+
+<header>
   <nav>
-    <a href="#" class="nav-logo">
-    <img src="logo.jpg" class="logo-img">
+    <a href="Trang_chủ.php" class="nav-logo">
+      <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
       <a href="Trang_chủ.php" class="active">Trang Chủ</a>
-      <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+      <a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.php">Sản Phẩm</a>
       <a href="Giới_thiệu_Khuyến_mãi/gioithieu.html">Giới Thiệu</a>
       <a href="Giới_thiệu_Khuyến_mãi/tintuc.html">Blog</a>
       <a href="Liên_hệ.html">Liên Hệ</a>
     </div>
     <div class="nav-right">
-      <div class="search-box">
+      <!-- TÌM KIẾM LIVE -->
+      <div class="search-box" id="searchWrapper">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput"
+               autocomplete="off"
+               oninput="liveSearch(this.value)"
+               onkeydown="if(event.key==='Enter') goSearch()">
+        <div class="search-results" id="searchResults"></div>
       </div>
-      <button class="btn-account" onclick="openModal('loginModal')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Tài khoản
-      </button>
-      <!-- Nút giỏ hàng - Small pill -->
+
+      <!-- NÚT TÀI KHOẢN -->
+      <div class="account-wrapper">
+        <?php if ($user): ?>
+        <button class="btn-account" onclick="toggleDropdown()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <?= htmlspecialchars(explode(' ', $user['fullname'])[0]) ?> ▾
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <div class="dropdown-header">
+            <div class="d-name"><?= htmlspecialchars($user['fullname']) ?></div>
+            <div class="d-email"><?= htmlspecialchars($user['email']) ?></div>
+          </div>
+          <a href="User.php?page=profile" class="dropdown-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Hồ sơ của tôi
+          </a>
+          <a href="User.php?page=orders" class="dropdown-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            Lịch sử mua hàng
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="?logout=1" class="dropdown-item logout">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Đăng xuất
+          </a>
+        </div>
+        <?php else: ?>
+        <button class="btn-account" onclick="document.getElementById('authOverlay').classList.add('show')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Tài khoản
+        </button>
+        <?php endif; ?>
+      </div>
+
+      <!-- GIỎ HÀNG -->
       <button class="btn-cart" onclick="document.location='Giỏ_hàng.php'">
         CART
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -40,39 +256,16 @@
           <line x1="3" y1="6" x2="21" y2="6"/>
           <path d="M16 10a4 4 0 0 1-8 0"/>
         </svg>
-        <span class="cart-badge" id="cartBadge">0</span>
+        <span class="cart-badge" id="cartBadge"><?= $cart_count ?></span>
       </button>
     </div>
   </nav>
-
-  <!-- CART OVERLAY & DRAWER -->
-  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-header">
-      <h3>Gio Hang</h3>
-      <button class="cart-close" onclick="toggleCart()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="cart-body" id="cartBody">
-      <div class="cart-empty">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <p style="font-weight:600;margin-bottom:6px;">Giỏ hàng của tôi</p>
-        <p style="font-size:13px;">Hãy thêm sản phẩm vào giỏ hàng</p>
-      </div>
-    </div>
-    <div class="cart-footer" id="cartFooter" style="display:none">
-      <div class="cart-total"><span>Tổng cộng:</span><strong id="cartTotal">0d</strong></div>
-      <button class="btn-checkout">Thanh Toán Ngay</button>
-    </div>
-  </div>
 </header>
-<!-- ═══════════ HOME PAGE ═══════════ -->
-  <div id="home" class="page active">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg-circle c1"></div>
-      <div class="hero-bg-circle c2"></div>
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <section class="hero">
+    <div class="hero-bg-circle c1"></div>
+    <div class="hero-bg-circle c2"></div>
       <div class="hero-content">
         <div class="hero-tag">
           <span class="hero-tag-dot"></span>
@@ -668,22 +861,62 @@
   }
 
   function handleFeedback(type) {
-    if (type === 'good') {
-      addMessage('Mình hiểu rồi, cảm ơn bạn', 'user');
-      addMessage('Chúc bạn mua sắm văn phòng phẩm thật tiện lợi và tiết kiệm tại shop nhé! 🛒', 'bot');
-    } else {
-      addMessage('Mình chưa hiểu lắm', 'user');
-      
-      // In ra dòng thông báo có chứa link Facebook (Dùng cờ isHTML = true)
-      const contactMsg = `Bạn vui lòng liên hệ hotline <strong>0373111481</strong> hoặc nhắn tin qua Facebook: <a href="https://www.facebook.com/nhung.inh.125242/" target="_blank" style="color: var(--ink-purple); font-weight: bold; text-decoration: underline;">TẠI ĐÂY</a> để được hỗ trợ chi tiết hơn nhé!`;
-      addMessage(contactMsg, 'bot', true);
-    }
 
-    // Sau khi phản hồi, tạo độ trễ 2 giây để khách đọc tin nhắn rồi hiện lại Menu Chính
-    setTimeout(() => {
-      showCategories();
-    }, 10000);
-  }
+<script>
+// Toggle dropdown tài khoản
+function toggleDropdown() {
+  document.getElementById('dropdownMenu')?.classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const w = document.querySelector('.account-wrapper');
+  if (w && !w.contains(e.target)) document.getElementById('dropdownMenu')?.classList.remove('open');
+});
+
+// Chuyển tab popup
+function switchAuthTab(tab, el) {
+  document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+  document.getElementById('auth-' + tab).classList.add('active');
+  if (el) el.classList.add('active');
+  else document.querySelectorAll('.auth-tab')[tab==='login'?0:1].classList.add('active');
+}
+
+// Tìm kiếm live
+let searchTimer;
+function liveSearch(q) {
+  clearTimeout(searchTimer);
+  const results = document.getElementById('searchResults');
+  if (q.length < 2) { results.classList.remove('show'); return; }
+  searchTimer = setTimeout(() => {
+    fetch('search_api.php?q=' + encodeURIComponent(q))
+    .then(r => r.json())
+    .then(data => {
+      if (data.length === 0) {
+        results.innerHTML = '<div class="search-result-empty">Không tìm thấy sản phẩm</div>';
+      } else {
+        results.innerHTML = data.map(p =>
+          `<a href="Trang_sản_phẩm/Tất_cả_sản_phẩm.php?q=${encodeURIComponent(p.name)}" class="search-result-item">
+            <span class="search-result-name">${p.name}</span>
+            <span class="search-result-price">${p.price_fmt}</span>
+          </a>`
+        ).join('');
+      }
+      results.classList.add('show');
+    });
+  }, 300);
+}
+
+// Đóng kết quả tìm kiếm khi click ra ngoài
+document.addEventListener('click', function(e) {
+  if (!document.getElementById('searchWrapper')?.contains(e.target))
+    document.getElementById('searchResults')?.classList.remove('show');
+});
+
+// Nhấn Enter tìm kiếm
+function goSearch() {
+  const q = document.getElementById('searchInput').value.trim();
+  if (q) window.location.href = 'Trang_sản_phẩm/Tất_cả_sản_phẩm.php?q=' + encodeURIComponent(q);
+}
 </script>
 </body>
 </html>
