@@ -232,7 +232,51 @@
       showCategories();
     }, 10000);
   }
+// 1. BIẾN TRẠNG THÁI
+let products = []; // Chờ PHP đổ dữ liệu vào
+let cart = JSON.parse(localStorage.getItem('ink_cart')) || []; // Lấy giỏ hàng từ LocalStorage nếu có
+let currentFilter = '';
 
+// 2. HÀM TẢI DỮ LIỆU TỪ PHP (CSDL)
+async function fetchProducts() {
+  try {
+    // Gọi API từ backend (Ví dụ: get_products.php)
+    const res = await fetch('get_products.php');
+    products = await res.json();
+    
+    // In ra màn hình sau khi có data
+    renderProducts(products, 'productsGrid');
+  } catch (err) {
+    console.error("Lỗi tải sản phẩm:", err);
+  }
+}
+
+// 3. CÁC HÀM XỬ LÝ GIAO DIỆN (UI)
+function renderProducts(arr, containerId) {
+  // Giữ nguyên ruột hàm renderProducts của bạn
+  // ...
+}
+
+function updateCart() {
+  // Giữ nguyên ruột hàm updateCart của bạn
+  // Thêm dòng này ở cuối để lưu giỏ hàng không bị mất khi F5:
+  localStorage.setItem('ink_cart', JSON.stringify(cart));
+}
+
+// Giữ lại các hàm xử lý Modal, Toast, Đóng/Mở Cart Drawer
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id, e) { if(!e || e.target === document.getElementById(id)) document.getElementById(id).classList.remove('open'); }
+function showToast(msg) { /* ... */ }
+function toggleCart() { /* ... */ }
+
+// Các hàm Thêm/Sửa/Xóa giỏ hàng giữ lại nhưng nhớ gọi updateCart() sau khi thay đổi
+function addToCartById(id) { /* ... */ }
+function removeFromCart(id) { /* ... */ }
+function changeQty(id, delta) { /* ... */ }
+
+// 4. KHỞI CHẠY
+fetchProducts(); // Gọi CSDL
+updateCart();    // Hiện số lượng giỏ hàng cũ
   // Khởi chạy khi load trang
   showCategories();
 </script>

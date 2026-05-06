@@ -9,8 +9,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../CSS_header.css">
-    <link rel="stylesheet" href="../CSS_footer.css">
+    <link rel="stylesheet" href="CSS_header.css">
+    <link rel="stylesheet" href="CSS_footer.css">
+    <link rel="stylesheet" href="CSS_AI.css">
   </head>
   <body>
   <?php include 'header.php'; ?>
@@ -258,5 +259,6 @@
 </section>
 </main>
 <?php include 'footer.php'; ?>
+<?php include 'chat_main.php'; ?>
   </body>
 </html>
