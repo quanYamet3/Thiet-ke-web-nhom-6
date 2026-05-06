@@ -176,3 +176,11 @@
             padding-left: 0px;
             padding-right: 50px;
         }
+
+         footer {
+    background: #1e0a3c !important;
+    color: #fff !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    position: relative !important;
+}
