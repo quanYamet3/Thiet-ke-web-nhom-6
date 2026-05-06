@@ -189,14 +189,34 @@ nav {
   .qty-btn:hover { background:var(--ink-purple); border-color:var(--ink-purple); color:#fff; }
   .cart-del { background:none; border:none; color:#CBD5E1; cursor:pointer; margin-left:auto; padding:4px; }
   .cart-del:hover { color:var(--ink-crimson); }
-  .cart-footer { padding:20px 24px; border-top:1px solid var(--ink-border); }
-  .cart-total { display:flex; justify-content:space-between; margin-bottom:16px; }
-  .cart-total span { font-size:16px; font-weight:700; }
-  .cart-total strong { color:var(--ink-crimson); font-size:20px; }
-  .btn-checkout {
-    width:100%; padding:14px; border-radius:12px;
-    background:linear-gradient(135deg,var(--ink-purple),var(--ink-crimson));
-    color:#fff; font-weight:700; font-size:15px; border:none;
-    cursor:pointer; transition:.2s;
-  }
-  .btn-checkout:hover { opacity:.9; transform:translateY(-1px); }
+/* ─── GIỎ HÀNG DRAWER ─── */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100vh;
+    background: #fff;
+    z-index: 2001;
+    box-shadow: -8px 0 40px rgba(0,0,0,.15);
+    transition: right 0.35s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open { right: 0; }
+
+.cart-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;        /* js_gh.js tự padding */
+}
+
+/* QUAN TRỌNG: xóa style cứng của cart-footer */
+.cart-footer {
+    display: none !important;  /* ẩn hoàn toàn, dùng #cartFooter thay thế */
+}
+
+#cartFooter {
+    flex-shrink: 0;
+}
