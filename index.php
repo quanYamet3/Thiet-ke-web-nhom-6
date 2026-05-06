@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="CSS_trang_chủ.css">
   <link rel="stylesheet" href="CSS_header.css">
   <link rel="stylesheet" href="CSS_footer.css">
+  <link rel="stylesheet" href="CSS_AI.css">
 </head>
 <?php include 'header.php'; ?>
 <body>
