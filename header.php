@@ -5,7 +5,7 @@
     <img src="logo.jpg" class="logo-img">
     </a>
     <div class="nav-links">
-      <a href="index.php">Trang Chủ</a>
+      <a href="index.php" >Trang Chủ</a>
       <a href="sanpham.php">Sản Phẩm</a>
       <a href="gioithieu.php">Giới Thiệu</a>
       <a href="tintuc.php">Blog</a>
@@ -59,26 +59,32 @@
 </header>
 <div id="result"></div>
 <script>
-function searchProducts() {
-  const keyword = document.getElementById("searchInput").value.trim();
+document.addEventListener("DOMContentLoaded", function() {
+    // Lấy tên file hiện tại từ thanh địa chỉ URL
+    let currentPath = window.location.pathname.split('/').pop();
+    currentPath = decodeURIComponent(currentPath); // Giải mã URL tiếng Việt
+    
+    if (currentPath === '') currentPath = 'index.php'; // Mặc định là trang chủ
 
-  // Không tìm nếu ô trống
-  if (keyword.length === 0) {
-    document.getElementById("result").innerHTML = "";
-    return;
-  }
+    // Mảng các trang danh mục con của Sản Phẩm
+    const productPages = [
+        'sanpham.php', 'Giấy&sổ.php', 'Bút_viết.php', 'Kẹp&Ghim.php', 
+        'Dụng_cụ.php', 'Lưu_trữ.php', 'Hộp_đựng.php', 'Khác.php'
+    ];
 
-  fetch("search.php?keyword=" + encodeURIComponent(keyword))
-    .then(response => {
-      if (!response.ok) throw new Error("Lỗi kết nối");
-      return response.text();
-    })
-    .then(data => {
-      document.getElementById("result").innerHTML = data;
-    })
-    .catch(err => {
-      document.getElementById("result").innerHTML = "<p>Không thể tìm kiếm lúc này.</p>";
-      console.error(err);
-    });
-}
+    // Xóa class active cũ (nếu có)
+    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+
+    // Gắn class active
+    if (productPages.includes(currentPath)) {
+        // Nếu đang ở bất kỳ trang sản phẩm nào, active nút "Sản Phẩm"
+        document.querySelector('.nav-links a[href="sanpham.php"]').classList.add('active');
+    } else {
+        // Active các trang bình thường khác
+        let activeLink = document.querySelector(`.nav-links a[href="${currentPath}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+});
 </script>

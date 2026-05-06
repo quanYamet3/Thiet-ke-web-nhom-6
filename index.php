@@ -33,22 +33,22 @@
       <div class="hero-visual">
         <div class="hero-card">
           <div class="hero-card-grid">
-            <div class="hero-prod" onclick="document.location='Sản_phẩm/Bút_viết.html'">
+            <div class="hero-prod" onclick="document.location='Bút_viết.php'">
               <div class="hero-prod-icon">🖋️</div>
               <div class="hero-prod-name">Bút bi cao Cấp</div>
               <div class="hero-prod-price"> Từ 25.000d</div>
             </div>
-            <div class="hero-prod" onclick="document.location='Sản_phẩm/Sổ_tay.html'">
+            <div class="hero-prod" onclick="document.location='Giấy&sổ.php'">
               <div class="hero-prod-icon">📝</div>
               <div class="hero-prod-name">Sổ tay A5</div>
               <div class="hero-prod-price"> Từ 55.000d</div>
             </div>
-            <div class="hero-prod" onclick="document.location='Sản_phẩm/Khác.html'">
+            <div class="hero-prod" onclick="document.location='Dụng_cụ.php'">
               <div class="hero-prod-icon">✂️</div>
               <div class="hero-prod-name">Kéo cắt</div>
               <div class="hero-prod-price"> Từ 18.000d</div>
             </div>
-            <div class="hero-prod" onclick="document.location='Sản_phẩm/Lưu_trữ.html'">
+            <div class="hero-prod" onclick="document.location='Lưu_trữ.php'">
               <div class="hero-prod-icon">📁</div>
               <div class="hero-prod-name">File hồ sơ</div>
               <div class="hero-prod-price"> Từ 12.000d</div>
@@ -73,20 +73,20 @@
         </div>
       </div>
       <div class="cat-grid">
-        <div class="cat-card" onclick="document.location='/*link danh mục bút*/';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Bút_viết.php';setActiveByIndex(1)">
           <div class="cat-icon">&#128393;</div>
           <div class="cat-name">Bút Viết</div>
         </div>
-        <div class="cat-card" onclick="document.location='/*link danh mục sổ*/';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Giấy&sổ.php';setActiveByIndex(1)">
           <div class="cat-icon">&#128214;</div>
           <div class="cat-name">Sổ Tay</div>
           
         </div>
-        <div class="cat-card" onclick="document.location='/* link danh mục văn phòng ';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Dụng_cụ.php';setActiveByIndex(1)">
           <div class="cat-icon">&#9986;</div>
           <div class="cat-name">Văn Phòng</div>
         </div>
-        <div class="cat-card" onclick="document.location='/* link danh muc giấy */';setActiveByIndex(1)">
+        <div class="cat-card" onclick="document.location='Giấy&sổ.php';setActiveByIndex(1)">
           <div class="cat-icon">&#128203;</div>
           <div class="cat-name">Giấy In</div>
         </div>
@@ -98,10 +98,10 @@
       <div class="section-label">Blog</div>
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:12px">
         <div class="section-title">Tin tức mới nhất</div>
-        <button class="filter-tab" onclick="document.location='gioithieu.phphtml'">Xem tất cả</button>
+        <button class="filter-tab" onclick="document.location='tintuc.php'">Xem tất cả</button>
       </div>
       <div class="blog-grid">
-        <div class="blog-card" onclick="document.location='gioithieu.php1.html'";>
+        <div class="blog-card" onclick="document.location='baiviet1.php'";>
           <div class="blog-img">
             <img
             src="https://i.ibb.co/d4kkZD4Z/huong-dan-luu-tru-chung-tu-hop-dong-cho-ke-toan-nhan-su-3.jpg"
@@ -116,7 +116,7 @@
             <div class="blog-excerpt">Văn phòng phẩm luôn xuất hiện trong mọi môi trường làm việc và học tập. Mặc dù ...</div>
           </div>
         </div>
-        <div class="blog-card" onclick="document.location='gioithieu.php2.html'";>
+        <div class="blog-card" onclick="document.location='baiviet2.php'";>
           <div class="blog-img">
             <img src="https://huyphu.com/cdn/720/Product/Kn-748a48/1581065193995.jpg" alt="News" style="height:180px;width:100%; object-fit:cover; border-radius:4px"/>
             <div class="blog-tag" style="background:var(--ink-orange)">Hướng dẫn</div>
@@ -127,7 +127,7 @@
             <div class="blog-excerpt">Sổ tay là vật dụng quen thuộc trong cuộc sống hàng ngày. Dù ở trường...</div>
           </div>
         </div>
-        <div class="blog-card" onclick="document.location='gioithieu.php3.html'";>
+        <div class="blog-card" onclick="document.location='baiviet3.php'";>
           <div class="blog-img">
             <img src="https://i.ibb.co/Nn15V3QZ/cach-bao-quan-but-tap-so-tay-giay-in-de-dung-lau-va-giu-chat-luong-04-1.jpg" alt="News" style="height:180px;width:100%; object-fit:cover; border-radius:4px"/>
             <div class="blog-tag" style="background:var(--ink-crimson)">Review</div>

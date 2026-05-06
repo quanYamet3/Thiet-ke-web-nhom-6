@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="CSS_header.css">
     <link rel="stylesheet" href="CSS_footer.css">
 </head>
-  <?php include 'header.php'; ?>
 <body>
+     <?php include 'header.php'; ?>
+     <br>
+     <br>
     <div class="container">
         <div class="breadcrumb">
         Trang chủ / <span>Liên hệ</span>
@@ -26,9 +28,10 @@
                 <div class="contact-section">
                     <h3>📧 Thông tin liên hệ</h3>
                     <ul class="contact-list">
-                        <li><strong>Email:</strong> inkcorner.contact@gmail.com</li>
-                        <li><strong>Điện thoại:</strong> <span class="highlight">0913.200.206</span></li>
-                        <li><strong>Thời gian phản hồi:</strong> 9:00 – 18:00 (Thứ 2 – Thứ 7)</li>
+                        <li><strong>Email:</strong><a href="mailto:inkcorner.contact@gmail.com"> ✉️ inkcorner@gmail.com</a></li>
+                        <li><strong>Điện thoại:</strong> <span> <a href="tel:0913200206">📞 0913200206</a></span></li>
+                        <li><strong>Thời gian phản hồi:</strong> 9:00 - 18:00 (Thứ 2 - Thứ 7)</li>
+                        <li><strong>Địa chỉ:</strong> <a href="https://www.google.com/maps?q=79+Hồ+Tùng+Mậu+Hà+Nội" target="_blank">📍 79, Hồ Tùng Mậu, Hà Nội</a></li>
                     </ul>
                 </div>
 
