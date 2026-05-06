@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iNK - Bài viết 5</title>
-    <link rel="stylesheet" href="../CSS_header.css" />
-    <link rel="stylesheet" href="../CSS_footer.css" />
+    <link rel="stylesheet" href="CSS_header.css" />
+    <link rel="stylesheet" href="CSS_footer.css" />
     <link rel="stylesheet" href="CSS_bài_viết.css" />
+    <link rel="stylesheet" href="CSS_AI.css" />
   </head>
   <body>
    <?php include 'header.php'; ?>
@@ -90,5 +91,6 @@
     <br>
     <br>
      <?php include 'header.php'; ?>
+     <?php include 'chat_main.php'; ?>
   </body>
 </html>

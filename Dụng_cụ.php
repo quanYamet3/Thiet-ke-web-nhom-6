@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS_San_Pham.css">
-    <link rel="stylesheet" href="../CSS_header.css">
-    <link rel="stylesheet" href="../CSS_footer.css">
+    <link rel="stylesheet" href="CSS_header.css">
+    <link rel="stylesheet" href="CSS_footer.css">
+    <link rel="stylesheet" href="CSS_AI.css"
 </head>
 <body>
   <?php include 'header.php'; ?>
@@ -83,5 +84,6 @@
     <br>
     <br>
     <?php include 'footer.php'; ?>
+    <?php include 'chat_main.php'; ?>
 </body>
 </html>

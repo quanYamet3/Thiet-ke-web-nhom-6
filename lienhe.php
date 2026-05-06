@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="CSS_Liên_hệ.css">
     <link rel="stylesheet" href="CSS_header.css">
     <link rel="stylesheet" href="CSS_footer.css">
+    <link rel="stylesheet" href="CSS_AI.css">
 </head>
 <body>
      <?php include 'header.php'; ?>
@@ -89,5 +90,6 @@
         </div>
     </div>
     <?php include 'footer.php'; ?>
+    <?php include 'chat_main.php'; ?>
 </body>
 </html>

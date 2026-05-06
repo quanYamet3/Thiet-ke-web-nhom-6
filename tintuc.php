@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="tintuc.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <!-- Không có CSS header và footer do trùng quá nhiều biến màu @@-->
+     <link rel="stylesheet" href="CSS_AI.css" />
   </head> 
   <body>
   <?php include 'header.php'; ?>
@@ -164,7 +165,7 @@
       </div>
 </main>
 <?php include 'footer.php'; ?>
-  
+<?php include 'chat_main.php'; ?>
 
   <script>
     function changePage(pageNumber, element) {
