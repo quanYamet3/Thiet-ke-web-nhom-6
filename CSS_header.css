@@ -111,8 +111,6 @@ nav {
     align-items: center;
     justify-content: center;
   }
-
-  /* THÊM ĐOẠN CSS NÀY ĐỂ THU NHỎ ICON BÊN TRONG */
   .btn-cart svg,
   .btn-cart img {
     width: 18px;  /* Bạn có thể tăng/giảm số này để icon vừa vặn nhất */
@@ -121,27 +119,27 @@ nav {
     object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
   }
 
-.btn-cart:hover {
-  background:#5c3290;
-  transform:scale(1.04);
-}
+  .btn-cart:hover {
+    background:#5c3290;
+    transform:scale(1.04);
+  }
 
-.cart-badge {
-  position:absolute;
-  top:-5px;
-  right:-5px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:var(--ink-orange);
-  color:#fff;
-  font-size:10px;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:2px solid #fff;
-}
+  .cart-badge {
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--ink-orange);
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid #fff;
+  }
 
   /* ─── CART DRAWER Quân chỉnh cái giỏ hàng này nhé  ─── */
   .cart-overlay {
