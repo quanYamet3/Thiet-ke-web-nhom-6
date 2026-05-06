@@ -21,7 +21,7 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 ;
+  padding: 0 20px;
 }
 
 /* Hero */
@@ -30,7 +30,6 @@ body {
   color: white;
   padding: 60px 0;
   border-radius: 0 0 50px 50px;
-  margin-top: 64px;
 }
 .hero-content {
   display: flex;

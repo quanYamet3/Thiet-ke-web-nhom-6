@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iNK - Bài viết 6</title>
+    <link rel="stylesheet" href="../CSS_header.css" />
+    <link rel="stylesheet" href="../CSS_footer.css" />
+    <link rel="stylesheet" href="CSS_bài_viết.css" />
+  </head>
+  <body>
+   <header>
+<nav>
+    <a href="#" class="nav-logo">
+    <img src="../logo.jpg" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="../Trang_chủ.html">Trang Chủ</a>
+      <a href="../Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản Phẩm</a>
+      <a href="gioithieu.html">Giới Thiệu</a>
+      <a href="tintuc.html" class="active">Blog</a>
+      <a href="../Liên_hệ.html">Liên Hệ</a>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Tìm kiếm..." id="searchInput" oninput="filterProducts()">
+      </div>
+      <button class="btn-account" onclick="openModal('loginModal')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tài khoản
+      </button>
+      <!-- Nút giỏ hàng - Small pill -->
+      <button class="btn-cart" onclick="toggleCart()">
+        CART
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART OVERLAY & DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Gio Hang</h3>
+      <button class="cart-close" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p style="font-weight:600;margin-bottom:6px;">Giỏ hàng của tôi</p>
+        <p style="font-size:13px;">Hãy thêm sản phẩm vào giỏ hàng</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Tổng cộng:</span><strong id="cartTotal">0d</strong></div>
+      <button class="btn-checkout">Thanh Toán Ngay</button>
+    </div>
+  </div>
+</header>
+<br>
+<br>
+<br> 
+    <div class="container">
+      <div class="breadcrumb">Trang chủ / Blog / <strong style="color:var(--ink-purple)">Bài viết 6</strong></div>
+      <div class="category">TIN TỨC</div>
+      <h1>Những sai lầm khi ghi chép mà bạn nên tránh</h1>
+      <div class="divider"></div>
+      <div class="meta">Đã đăng trên 25/04/2026 bởi <span>ADMIN</span></div>
+      <img src="https://i.ibb.co/c5Lz1xN/image4-22.png" />
+      <p>
+        Ghi chép là một kỹ năng quen thuộc trong học tập và công việc, nhưng
+        không phải ai cũng biết cách ghi chép hiệu quả. Nhiều người dành rất
+        nhiều thời gian để viết, nhưng khi cần xem lại thì lại không thể sử dụng
+        được những gì mình đã ghi. Nguyên nhân thường không nằm ở việc bạn ghi
+        ít hay nhiều, mà nằm ở cách bạn ghi chép. Nếu không nhận ra và điều
+        chỉnh những sai lầm phổ biến, việc ghi chép có thể trở nên tốn thời gian
+        mà không mang lại hiệu quả thực sự.
+      </p>
+
+      <p>
+        Một trong những sai lầm thường gặp nhất là ghi chép quá dài dòng. Nhiều
+        người có xu hướng viết lại gần như toàn bộ nội dung mà không chọn lọc,
+        dẫn đến việc trang giấy trở nên dày đặc và khó đọc. Khi cần xem lại, bạn
+        sẽ mất nhiều thời gian để tìm kiếm thông tin quan trọng, thậm chí có thể
+        bỏ qua những ý chính vì chúng không được làm nổi bật. Ghi chép hiệu quả
+        không phải là ghi thật nhiều, mà là ghi đúng và đủ.
+      </p>
+
+      <p>
+        Bên cạnh đó, việc không có cấu trúc rõ ràng cũng là một vấn đề lớn. Khi
+        nội dung được viết một cách liền mạch mà không có tiêu đề, không phân
+        chia ý, bạn sẽ rất khó theo dõi khi đọc lại. Một trang ghi chép tốt nên
+        có sự sắp xếp hợp lý, với các phần được chia rõ ràng để bạn dễ dàng nhận
+        biết và tra cứu khi cần.
+      </p>
+
+      <p>
+        Ngoài ra, nhiều người không phân loại thông tin trong quá trình ghi
+        chép. Tất cả nội dung được viết giống nhau mà không có sự khác biệt giữa
+        ý chính và ý phụ, khiến việc tiếp nhận trở nên khó khăn. Việc không
+        highlight hoặc không sử dụng ký hiệu để nhấn mạnh những phần quan trọng
+        cũng làm giảm đáng kể hiệu quả của việc ghi nhớ.
+      </p>
+
+      <p>
+        Một sai lầm khác là ghi chép nhưng không bao giờ xem lại. Ghi chép chỉ
+        thực sự có giá trị khi bạn sử dụng lại nó. Nếu bạn chỉ viết rồi bỏ đó,
+        bạn sẽ nhanh chóng quên đi những gì đã học hoặc đã ghi. Việc dành thời
+        gian để đọc lại, bổ sung hoặc chỉnh sửa sẽ giúp bạn hiểu sâu hơn và ghi
+        nhớ lâu hơn.
+      </p>
+
+      <p>
+        Để cải thiện những vấn đề này, bạn không cần thay đổi quá nhiều mà chỉ
+        cần bắt đầu từ những điều đơn giản. Hãy giữ nội dung ngắn gọn, tập trung
+        vào ý chính và tránh viết lan man. Sử dụng tiêu đề rõ ràng để phân chia
+        nội dung, đồng thời áp dụng các ký hiệu, màu sắc hoặc cách trình bày
+        khác nhau để làm nổi bật thông tin quan trọng. Những thay đổi nhỏ này sẽ
+        giúp bạn dễ dàng đọc lại và sử dụng thông tin hiệu quả hơn.
+      </p>
+
+      <p>
+        Ghi chép không chỉ là việc viết xuống thông tin, mà còn là cách bạn tổ
+        chức suy nghĩ của mình. Khi bạn ghi chép một cách có hệ thống, bạn không
+        chỉ tiết kiệm thời gian mà còn nâng cao khả năng hiểu và ghi nhớ. Tránh
+        được những sai lầm cơ bản và duy trì một phương pháp ghi chép phù hợp sẽ
+        giúp bạn học tập và làm việc hiệu quả hơn mỗi ngày.
+      </p>
+    </div>
+
+    <a href="tel:0394334199" class="hotline-btn">0394334199</a>
+    <br>
+    <br>
+    <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../logo.jpg" style="width:40px;margin-bottom:12px">
+        <p>Chuyên cung cấp văn phòng phẩm chất lượng cao cho cá nhân và doanh nghiệp. Chất lượng là cam kết của chúng tôi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Cửa Hàng</h4>
+        <a href="../Trang_sản_phẩm/Tất_cả_sản_phẩm.html">Sản phẩm</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="tintuc.html">Blog</a>
+        <a href="../Liên_hệ.html">Liên hệ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hỗ trợ</h4>
+        <a href="#">Chính sách đổi Trả</a>
+        <a href="#">Hướng dẫn mua hàng</a>
+        <a href="#">Phương thức thanh toán</a>
+        <a href="#">Chính sách bảo mật</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <a href="#">0913200206</a>
+        <a href="#">inkcorner.contact@gmail.com</a>
+        <a href="#">79, Hồ Tùng Mậu, Hà Nội</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iNK Store. Tất cả các quyền được bảo lưu.</span>
+      <span>Thiết kế bởi INK Team</span>
+    </div>
+  </footer>
+  </body>
+</html>
