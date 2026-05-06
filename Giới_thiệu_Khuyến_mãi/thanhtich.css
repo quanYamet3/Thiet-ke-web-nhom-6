@@ -1,7 +1,0 @@
-.stat-box span {
-  font-size: 32px;
-  color: #5c3290; /* Màu tím thương hiệu INK */
-  font-weight: bold;
-  display: inline-block;
-  min-width: 40px; /* Giữ khung không bị giật khi số thay đổi */
-}
