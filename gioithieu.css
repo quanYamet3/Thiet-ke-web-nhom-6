@@ -32,15 +32,21 @@ body {
   border-radius: 0 0 50px 50px;
   margin-top: 64px;
 }
-.hero-content {
+.hero {
+  /* Xóa dòng background cũ, thay bằng tổ hợp Gradient mờ + Ảnh nền */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('anh.jpg');
+  
+  background-size: cover;      /* Để ảnh phủ kín toàn bộ khung tím */
+  background-position: center; /* Để tâm ảnh luôn nằm giữa */
+  background-repeat: no-repeat;
+  
+  color: white;
+  padding: 100px 0;
+  border-radius: 0 0 50px 50px;
+  margin-top: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.hero-text h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  min-height: 400px;   
 }
 .btn-hero {
   background: orange;
@@ -50,9 +56,6 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-}
-.hero-image img {
-  width: 450px;
 }
 
 /* Các Section chung */
@@ -74,7 +77,7 @@ section {
   display: flex;
   gap: 30px;
   align-items: center;
-  margin-top: -40px;
+  margin-top: 0;
 }
 .badge {
   background: var(--purple-ink);
