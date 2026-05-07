@@ -6,8 +6,9 @@
     <title>iNK - Tin tức</title>
     <link rel="stylesheet" href="tintuc.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-    <!-- Không có CSS header và footer do trùng quá nhiều biến màu @@-->
-     <link rel="stylesheet" href="CSS_AI.css" />
+    <link rel="stylesheet" href="CSS_header.css" />
+    <link rel="stylesheet" href="CSS_footer.css" />
+    <link rel="stylesheet" href="CSS_AI.css" />
   </head> 
   <body>
   <?php include 'header.php'; ?>

@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iNK - Giới thiệu</title>
     <link rel="stylesheet" href="gioithieu.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
     <link rel="stylesheet" href="CSS_header.css">
     <link rel="stylesheet" href="CSS_footer.css">
     <link rel="stylesheet" href="CSS_AI.css">
@@ -23,9 +19,6 @@
             Nơi khơi nguồn sáng tạo và kết nối vạn ý tưởng trên từng trang giấy.
           </p>
           <button class="btn-hero">KHÁM PHÁ BỘ SƯU TẬP</button>
-        </div>
-        <div class="hero-image">
-          <img src="images/hero-art.png" alt="Creative Art" />
         </div>
       </div>
     </section>

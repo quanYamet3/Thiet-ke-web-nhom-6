@@ -1,3 +1,4 @@
+<?php include 'connect.php'; ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,10 +10,10 @@
     <link rel="stylesheet" href="CSS_AI.css">
 </head>
 <body>
-  <?php include 'header.php'; ?>
-<br>
-<br>
-<br>
+    <?php include 'header.php'; ?>
+    <br>
+    <br>
+    <br>
     <div class="container main-content">
         
         <aside class="sidebar">
@@ -33,308 +34,45 @@
             <div class="breadcrumb">
                 Trang chủ / Sản phẩm / <span>Tất cả sản phẩm</span>
             </div>
-        <div class="product-grid">
-                <div class="product-card">
-                    <img src="#" alt="Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001" class="product-img">
-                    <div class="product-title">Sổ tay A5 bìa cứng - Hồng Hà - 70gsm - VP001</div>
-                    <div class="product-price">60.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ lò xo A4 - Campus - 80gsm - VP002" class="product-img">
-                    <div class="product-title">Sổ lò xo A4 - Campus - 80gsm - VP002</div>
-                    <div class="product-price">109.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Double A - 70gsm - VP003" class="product-img">
-                    <div class="product-title">Giấy in A4 - Double A - 70gsm - VP003</div>
-                    <div class="product-price">86.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in A4 - Paper One - 80gsm - VP004" class="product-img">
-                    <div class="product-title">Giấy in A4 - Paper One - 80gsm - VP004</div>
-                    <div class="product-price">130.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note vàng - 3M Post-it - 75gsm - VP005" class="product-img">
-                    <div class="product-title">Giấy note vàng - 3M Post-it - 75gsm - VP005</div>
-                    <div class="product-price">18.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy note 5 màu - Pronoti - 75gsm - VP006" class="product-img">
-                    <div class="product-title">Giấy note 5 màu - Pronoti - 75gsm - VP006</div>
-                    <div class="product-price">14.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giấy in ảnh - Kodak - 180gsm - VP007" class="product-img">
-                    <div class="product-title">Giấy in ảnh - Kodak - 180gsm - VP007</div>
-                    <div class="product-price">155.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Sổ kế toán - Hải Tiến - 70gsm - VP008" class="product-img">
-                    <div class="product-title">Sổ kế toán - Hải Tiến - 70gsm - VP008</div>
-                    <div class="product-price">37.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút bi TL-027 - Thiên Long - VP009" class="product-img">
-                    <div class="product-title">Bút bi TL-027 - Thiên Long - VP009</div>
-                    <div class="product-price">5.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút bi xanh - Bến Nghé - B30" class="product-img">
-                    <div class="product-title">Bút bi xanh - Bến Nghé - B30</div>
-                    <div class="product-price">4.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút bi  - Thiên Long - TL105" class="product-img">
-                    <div class="product-title">Bút bi  - Thiên Long - TL105</div>
-                    <div class="product-price">5.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút chì tiệp  - KOH- 1500" class="product-img">
-                    <div class="product-title">Bút chì tiệp  - KOH- 1500</div>
-                    <div class="product-price">11.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút chì 2B - Staedtler - VP013" class="product-img">
-                    <div class="product-title">Bút chì 2B - Staedtler - VP013</div>
-                    <div class="product-price">10.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút chì 2B - Deli - VP014" class="product-img">
-                    <div class="product-title">Bút chì 2B - Deli - VP014</div>
-                    <div class="product-price">4.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút dạ quang - Stabilo - VP015" class="product-img">
-                    <div class="product-title">Bút dạ quang - Stabilo - VP015</div>
-                    <div class="product-price">15.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút lông bảng - Artline - VP016" class="product-img">
-                    <div class="product-title">Bút lông bảng - Artline - VP016</div>
-                    <div class="product-price">35.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bút mực- DeLi-A623" class="product-img">
-                    <div class="product-title">Bút mực- DeLi-A623</div>
-                    <div class="product-price">12.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Ghim bấm số 10 - Deli - VP018" class="product-img">
-                    <div class="product-title">Ghim bấm số 10 - Deli - VP018</div>
-                    <div class="product-price">61.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Ghim bấm số 3 - Plus - VP019" class="product-img">
-                    <div class="product-title">Ghim bấm số 3 - Plus - VP019</div>
-                    <div class="product-price">11.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Kẹp giấy nhỏ - Thiên Long - VP020" class="product-img">
-                    <div class="product-title">Kẹp giấy nhỏ - Thiên Long - VP020</div>
-                    <div class="product-price">15.000đ - 48.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Kẹp giấy lớn - Deli - VP021" class="product-img">
-                    <div class="product-title">Kẹp giấy lớn - Deli - VP021</div>
-                    <div class="product-price">30.000đ - 70.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Kẹp bướm 25mm - Deli - VP023" class="product-img">
-                    <div class="product-title">Kẹp bướm 25mm - Deli - VP023</div>
-                    <div class="product-price">56.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Kẹp góc giấy tam giác" class="product-img">
-                    <div class="product-title">Kẹp góc giấy tam giác</div>
-                    <div class="product-price">10.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Kéo văn phòng - Deli - 6009 " class="product-img">
-                    <div class="product-title">Kéo văn phòng - Deli - 6009 </div>
-                    <div class="product-price">24.700đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Dao rọc giấy nhỏ - SDI - VP025" class="product-img">
-                    <div class="product-title">Dao rọc giấy nhỏ - SDI - VP025</div>
-                    <div class="product-price">30.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Dao rọc giấy lớn - Deli - VP026" class="product-img">
-                    <div class="product-title">Dao rọc giấy lớn - Deli - VP026</div>
-                    <div class="product-price">45.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Thước nhựa 20cm - Thiên Long - VP027" class="product-img">
-                    <div class="product-title">Thước nhựa 20cm - Thiên Long - VP027</div>
-                    <div class="product-price">5.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Thước nhôm 30cm - Deli - VP028" class="product-img">
-                    <div class="product-title">Thước nhôm 30cm - Deli - VP028</div>
-                    <div class="product-price">12.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Gọt bút chì - Maped - VP029" class="product-img">
-                    <div class="product-title">Gọt bút chì - Maped - VP029</div>
-                    <div class="product-price">9.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Tẩy (gôm) - Pentel - VP030" class="product-img">
-                    <div class="product-title">Tẩy (gôm) - Pentel - VP030</div>
-                    <div class="product-price">15.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bìa hồ sơ A4 - Thiên  - 180gsm - VP031" class="product-img">
-                    <div class="product-title">Bìa hồ sơ A4 - Thiên  - 180gsm - VP031</div>
-                    <div class="product-price">26.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bìa còng 2 lỗ - King Jim - 250gsm - VP032" class="product-img">
-                    <div class="product-title">Bìa còng 2 lỗ - King Jim - 250gsm - VP032</div>
-                    <div class="product-price">43.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bìa còng 3 lỗ - Deli - 250gsm - VP033" class="product-img">
-                    <div class="product-title">Bìa còng 3 lỗ - Deli - 250gsm - VP033</div>
-                    <div class="product-price">45.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="File nhựa - Plus - VP034" class="product-img">
-                    <div class="product-title">File nhựa - Plus - VP034</div>
-                    <div class="product-price">17.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Túi đựng tài liệu - Thiên Long - VP035" class="product-img">
-                    <div class="product-title">Túi đựng tài liệu - Thiên Long - VP035</div>
-                    <div class="product-price">17.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Hộp đựng hồ sơ - Deli - VP036" class="product-img">
-                    <div class="product-title">Hộp đựng hồ sơ - Deli - VP036</div>
-                    <div class="product-price">90.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Hộp đựng bút đa năng-Deli-VP37" class="product-img">
-                    <div class="product-title">Hộp đựng bút đa năng-Deli-VP37</div>
-                    <div class="product-price">?đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Hộp đựng bút xoay 360 độ-Deli-VP38" class="product-img">
-                    <div class="product-title">Hộp đựng bút xoay 360 độ-Deli-VP38</div>
-                    <div class="product-price">?đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Khay đựng giấy - Plus - VP039" class="product-img">
-                    <div class="product-title">Khay đựng giấy - Plus - VP039</div>
-                    <div class="product-price">65.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Hộp bút - Deli - VP040" class="product-img">
-                    <div class="product-title">Hộp bút - Deli - VP040</div>
-                    <div class="product-price">43.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Giá để tài liệu 3 tầng  - King Jim - VP041" class="product-img">
-                    <div class="product-title">Giá để tài liệu 3 tầng  - King Jim - VP041</div>
-                    <div class="product-price">120.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Băng keo trong - 3M - VP042" class="product-img">
-                    <div class="product-title">Băng keo trong - 3M - VP042</div>
-                    <div class="product-price">43.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Băng keo 2 mặt - 3M - VP043" class="product-img">
-                    <div class="product-title">Băng keo 2 mặt - 3M - VP043</div>
-                    <div class="product-price">42.500đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Hồ dán - Thiên Long - VP044" class="product-img">
-                    <div class="product-title">Hồ dán - Thiên Long - VP044</div>
-                    <div class="product-price">5.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Keo khô - Deli - VP045" class="product-img">
-                    <div class="product-title">Keo khô - Deli - VP045</div>
-                    <div class="product-price">5.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Mực dấu - Shiny - VP046" class="product-img">
-                    <div class="product-title">Mực dấu - Shiny - VP046</div>
-                    <div class="product-price">55.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Con dấu - Trodat - VP047" class="product-img">
-                    <div class="product-title">Con dấu - Trodat - VP047</div>
-                    <div class="product-price">35.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bảng trắng mini - Deli - VP048" class="product-img">
-                    <div class="product-title">Bảng trắng mini - Deli - VP048</div>
-                    <div class="product-price">232.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Khăn lau bảng - Deli - VP049" class="product-img">
-                    <div class="product-title">Khăn lau bảng - Deli - VP049</div>
-                    <div class="product-price">30.000đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-card">
-                    <img src="#" alt="Bình xịt vệ sinh bàn - 3M - VP050" class="product-img">
-                    <div class="product-title">Bình xịt vệ sinh bàn - 3M - VP050</div>
-                    <div class="product-price">?đ</div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-            </div>
+            
+            <div class="product-grid">
+            <?php
+            // 1. Truy vấn lấy toàn bộ sản phẩm
+            $sql = "SELECT * FROM products";
+            $result = $conn->query($sql);
+
+            if ($result && $result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    // Định dạng tiền tệ (Ví dụ: 60000 -> 60.000)
+                    $gia_dinh_dang = number_format($row["price"], 0, ',', '.');
+                    
+                    // BẮT ĐẦU HIỂN THỊ THẺ SẢN PHẨM
+                    // onclick="openProductModal(...)": Khi bấm vào thẻ sẽ gọi hàm mở hộp thoại chi tiết
+                    echo '<div class="product-card" onclick="openProductModal(' . $row["id"] . ')">';
+                    
+                    // Hiển thị ảnh (Lấy từ thư mục images/)
+                    echo '    <div class="product-img-wrapper">';
+                    echo '        <img src="images/' . $row["image"] . '" alt="' . $row["name"] . '" class="product-img">';
+                    echo '    </div>';
+                    
+                    // Hiển thị tên và giá
+                    echo '    <div class="product-title">' . $row["name"] . '</div>';
+                    echo '    <div class="product-price">' . $gia_dinh_dang . 'đ</div>';
+                    
+                    // NÚT THÊM VÀO GIỎ HÀNG
+                    // event.stopPropagation(): Cực kỳ quan trọng! 
+                    // Lệnh này giúp trình duyệt hiểu rằng: "Chỉ thực hiện thêm vào giỏ, ĐỪNG mở hộp thoại chi tiết lên"
+                    echo '    <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(' . $row["id"] . ')">';
+                    echo '        Thêm vào giỏ';
+                    echo '    </button>';
+                    
+                    echo '</div>';
+                }
+            } else {
+                echo "<p>Cửa hàng hiện đang cập nhật sản phẩm...</p>";
+            }
+            ?>
+        </div>
         </section>
 
     </div>
@@ -342,5 +80,65 @@
     <br>
     <?php include 'footer.php'; ?>
     <?php include 'chat_main.php'; ?>
+    <div id="productModal" class="product-modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <div id="modalData">
+            <p style="text-align:center;">Đang tải dữ liệu...</p>
+        </div>
+    </div>
+</div>
+<script> 
+async function openProductModal(id) {
+    const modal = document.getElementById('productModal');
+    const modalData = document.getElementById('modalData');
+    
+    modal.style.display = "block"; // Hiện hộp thoại
+    modalData.innerHTML = "Đang tải...";
+
+    try {
+        // Gửi yêu cầu đến backend để lấy thông tin 1 sản phẩm
+        // Bạn có thể dùng chung file cart.php hoặc tạo file get_product.php
+        const response = await fetch(`get_product.php?id=${id}`);
+        const product = await response.json();
+
+        if(product) {
+            modalData.innerHTML = `
+                <div style="display:flex; gap:30px;">
+                    <div style="flex:1;">
+                        <img src="images/${product.image}" style="width:100%; border-radius:10px;">
+                    </div>
+                    <div style="flex:1.5;">
+                        <h2 style="color:#5c3290;">${product.name}</h2>
+                        <p style="color:#d8511c; font-size:24px; font-weight:bold;">${new Intl.NumberFormat('vi-VN').format(product.price)}đ</p>
+                        <hr style="margin:15px 0; border:0; border-top:1px solid #eee;">
+                        <div style="font-size:14px; color:#666; max-height:250px; overflow-y:auto;">
+                            <strong>Mô tả:</strong> <br> ${product.description} <br><br>
+                            <strong>Đặc điểm:</strong> <br> ${product.features}
+                        </div>
+                        <button onclick="addToCart(${product.id})" style="margin-top:20px; width:100%; padding:15px; background:#5c3290; color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">
+                            THÊM VÀO GIỎ HÀNG
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    } catch (error) {
+        modalData.innerHTML = "Lỗi tải dữ liệu sản phẩm.";
+    }
+}
+
+function closeProductModal() {
+    document.getElementById('productModal').style.display = "none";
+}
+
+// Đóng khi click ra ngoài hộp thoại
+window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target == modal) {
+        closeProductModal();
+    }
+}
+</script> 
 </body>
 </html>
